@@ -229,7 +229,7 @@
                         </button>
                         <div class="flex gap-3">
                             <a href="https://www.linkedin.com/in/richa-p-b61675235" target="_blank" class="p-3.5 border border-[#727272] hover:border-white rounded-full text-white hover:text-white transition-all hover:scale-110 hover:bg-white/10"><i data-lucide="linkedin" size="20"></i></a>
-                            <a href="mailto:richa744p@gmail.com" class="p-3.5 border border-[#727272] hover:border-white rounded-full text-white hover:text-white transition-all hover:scale-110 hover:bg-white/10"><i data-lucide="mail" size="20"></i></a>
+                            <a href="mailto:patilricha744@gmail.com" class="p-3.5 border border-[#727272] hover:border-white rounded-full text-white hover:text-white transition-all hover:scale-110 hover:bg-white/10"><i data-lucide="mail" size="20"></i></a>
                         </div>
                     </div>
                 </div>
@@ -707,7 +707,7 @@
                         
                         <!-- Action Buttons -->
                         <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row justify-center md:justify-end gap-3 w-full md:w-auto shrink-0">
-                            <a href="mailto:richa744p@gmail.com" class="px-7 py-3.5 bg-spotify-green hover:bg-[#1ed760] text-black rounded-full font-bold text-sm tracking-wide transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(29,185,84,0.3)] flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap">
+                            <a href="mailto:patilricha744@gmail.com" class="px-7 py-3.5 bg-spotify-green hover:bg-[#1ed760] text-black rounded-full font-bold text-sm tracking-wide transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(29,185,84,0.3)] flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap">
                                 <i data-lucide="mail" size="18"></i> SAY HELLO
                             </a>
                             <a href="https://www.linkedin.com/in/richa-p-b61675235" target="_blank" class="px-7 py-3.5 bg-transparent border border-[#727272] hover:border-white hover:text-white text-[#b3b3b3] rounded-full font-bold text-sm tracking-wide transition-all transform hover:scale-105 hover:bg-white/5 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap">
@@ -724,6 +724,68 @@
 
         </main>
     </div>
+ <!-- AI CHATBOT WIDGET -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-[90] flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden w-80 sm:w-96 h-[450px] bg-[#181818] border border-white/10 rounded-2xl shadow-2xl mb-4 overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right scale-95 opacity-0">
+            <!-- Header -->
+            <div class="bg-[#282828] p-4 flex justify-between items-center border-b border-white/5">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-spotify-green flex items-center justify-center text-black shadow-lg">
+                        <i data-lucide="bot" size="18"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm tracking-wide">Bublish </h3>
+                        <p class="text-spotify-green text-xs flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-spotify-green inline-block animate-pulse"></span> Online</p>
+                    </div>
+                </div>
+                <button id="close-chat" class="text-spotify-text hover:text-white transition-colors">
+                    <i data-lucide="x" size="20"></i>
+                </button>
+            </div>
+            
+            <!-- Body -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto flex flex-col gap-4 chat-scrollbar">
+                <!-- Initial Message -->
+                <div class="flex gap-2 items-start">
+                     <div class="w-6 h-6 rounded-full bg-spotify-green flex-shrink-0 flex items-center justify-center text-black mt-1 shadow-sm">
+                        <i data-lucide="bot" size="12"></i>
+                    </div>
+                    <div class="flex flex-col gap-2 max-w-[85%]">
+                        <div class="bg-[#282828] border border-white/5 text-white text-sm rounded-2xl rounded-tl-sm p-3 leading-relaxed shadow-sm">
+                            Beep boop! Hi there! I'm Bublish, Richa’s friendly robo assistant! ✨<br>
+                            I’m here to help you explore her awesome work.<br>
+                            What would you like to check out? 
+                        </div>
+                        <!-- Quick Replies -->
+                        <div class="flex flex-wrap gap-1.5 mt-1">
+                            <button onclick="handleQuickReply('Show Projects')" class="text-xs px-3 py-1.5 bg-spotify-green/10 text-spotify-green hover:bg-spotify-green hover:text-black border border-spotify-green/30 rounded-full transition-all duration-300">Show Projects</button>
+                            <button onclick="handleQuickReply('Skills')" class="text-xs px-3 py-1.5 bg-spotify-green/10 text-spotify-green hover:bg-spotify-green hover:text-black border border-spotify-green/30 rounded-full transition-all duration-300">Skills</button>
+                            <button onclick="handleQuickReply('Education')" class="text-xs px-3 py-1.5 bg-spotify-green/10 text-spotify-green hover:bg-spotify-green hover:text-black border border-spotify-green/30 rounded-full transition-all duration-300">Education</button>
+                            <button onclick="handleQuickReply('View Resume')" class="text-xs px-3 py-1.5 bg-spotify-green/10 text-spotify-green hover:bg-spotify-green hover:text-black border border-spotify-green/30 rounded-full transition-all duration-300">View Resume</button>
+                            <button onclick="handleQuickReply('Contact')" class="text-xs px-3 py-1.5 bg-spotify-green/10 text-spotify-green hover:bg-spotify-green hover:text-black border border-spotify-green/30 rounded-full transition-all duration-300 text-left">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Input -->
+            <div class="p-3 border-t border-white/5 bg-[#121212]">
+                <form id="chat-form" class="flex gap-2 relative">
+                    <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 bg-[#282828] text-white text-sm rounded-full pl-4 pr-12 py-2.5 focus:outline-none focus:ring-1 focus:ring-spotify-green placeholder:text-spotify-text transition-all">
+                    <button type="submit" class="absolute right-1 top-1 w-8 h-8 rounded-full bg-spotify-green hover:bg-[#1ed760] flex items-center justify-center text-black transition-transform active:scale-95 flex-shrink-0">
+                        <i data-lucide="send" size="14"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <button id="chat-toggle" class="w-[65px] h-[65px] rounded-full bg-white border-none shadow-[0_4px_12px_rgba(0,0,0,0.2)] cursor-pointer overflow-hidden transition-transform duration-200 hover:scale-110 active:scale-95 flex items-center justify-center">
+            <img src="assets\robot.png" alt="Bublish Bot" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/65x65/1DB954/000000?text=🤖'" />
+        </button>
+    </div>
+
 
     <!-- FULL SCREEN PROJECT OVERLAY -->
     <div id="project-overlay" class="fixed inset-0 z-[100] bg-[#121212] closed overflow-y-auto">
@@ -1225,8 +1287,144 @@ The most critical moment occurs after booking but before joining the session. Pr
         });
 
         window.addEventListener('scroll', handleScroll);
+
+        // --- 5. AI CHATBOT LOGIC ---
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChat = document.getElementById('close-chat');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        let chatOpen = false;
+
+        function toggleChat() {
+            chatOpen = !chatOpen;
+            
+            // Remove notification dot if exists
+            const notif = chatToggle.querySelector('.bg-red-500');
+            if(notif) notif.remove();
+
+            if (chatOpen) {
+                chatWindow.classList.remove('hidden');
+                setTimeout(() => {
+                    chatWindow.classList.remove('scale-95', 'opacity-0');
+                    chatWindow.classList.add('scale-100', 'opacity-100');
+                }, 10);
+                chatInput.focus();
+            } else {
+                chatWindow.classList.remove('scale-100', 'opacity-100');
+                chatWindow.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    chatWindow.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        chatToggle.addEventListener('click', toggleChat);
+        closeChat.addEventListener('click', toggleChat);
+
+        function addChatMessage(text, isUser = false) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex gap-2 items-start ${isUser ? 'flex-row-reverse' : ''}`;
+
+            const iconHTML = isUser ? '' : `
+                <div class="w-6 h-6 rounded-full bg-spotify-green flex-shrink-0 flex items-center justify-center text-black mt-1 shadow-sm">
+                    <i data-lucide="bot" size="12"></i>
+                </div>
+            `;
+
+            const bubbleClass = isUser
+                ? 'bg-spotify-green text-black rounded-2xl rounded-tr-sm p-3 max-w-[85%] shadow-md'
+                : 'bg-[#282828] text-white rounded-2xl rounded-tl-sm p-3 max-w-[85%] leading-relaxed shadow-sm border border-white/5';
+
+            msgDiv.innerHTML = `
+                ${iconHTML}
+                <div class="${bubbleClass} text-sm">
+                    ${text}
+                </div>
+            `;
+
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            if (!isUser) {
+                lucide.createIcons();
+            }
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+            
+            if (input.includes('hi') || input.includes('hello') || input.includes('hey')) {
+                return "Beep boop! Hello!  I'm Bublish! Want to know about Richa's projects, skills, or experience?";
+            }
+            if (input.includes('project') || input.includes('work') || input.includes('portfolio') || input.includes('build')) {
+                return "Oh, she has led some amazing projects!  Like <b>HealBridge</b> (Care Coordination), <b>Paw Rescue</b> (Stray Animal App), and <b>Spiritual Podcasts</b> (UX Research). You can explore them in the <button onclick=\"scrollToSection('projects'); toggleChat();\" class='text-spotify-green hover:text-[#1ed760] transition-colors font-bold underline decoration-2'>Projects section</button>! ✨";
+            }
+            if (input.includes('skill') || input.includes('tool') || input.includes('tech') || input.includes('know')) {
+                return "Her core skills span Product Strategy, UI/UX Design (Figma), No-code Development (FlutterFlow), UX Research, Python, and GTM Strategy. She's super good at bridging the gap between user needs and technical execution! 🛠️✨";
+            }
+            if (input.includes('contact') || input.includes('email') || input.includes('hire') || input.includes('reach') || input.includes('phone')) {
+                return "Ready to collaborate? Yippee! 🎉 Reach out to her via email at <a href='mailto:patilricha744@gmail.com' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>patilricha744@gmail.com</a> or connect on <a href='https://www.linkedin.com/in/richa-p-b61675235' target='_blank' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>LinkedIn</a>.";
+            }
+            if (input.includes('about') || input.includes('who is') || input.includes('bio')) {
+                return "Richa is a Product Enthusiast based in Bangalore! She translates user challenges into seamless product experiences, supported by a solid foundation in Agile methodologies, SDLC, and UI/UX design. 💡";
+            }
+            if (input.includes('intern') || input.includes('experience') || input.includes('job')) {
+                return "Right now, Richa is gaining hands-on experience as an <b>AI Research Intern</b> at Coding Junior (Remote) and previously sharpened her visual skills as a <b>Graphic Design Intern</b> at Kanha Aircorn! 💼✨";
+            }
+            if (input.includes('education') || input.includes('degree') || input.includes('study') || input.includes('college')) {
+                return "She is currently pursuing a PG Diploma in <b>Digital Product Design and Management</b> at IIIT Bangalore (2025-26) 🎓 and holds a <b>BCA with First Class Distinction</b> from Sri Balaji University! 🌟";
+            }
+            if (input.includes('resume') || input.includes('cv') || input.includes('document')) {
+                return "You can download her complete professional profile by <a href='https://drive.google.com/file/d/166vRB2GBQzjdwOlg_maufmeyc2JOqe5H/view?usp=sharing' target='_blank' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>clicking right here</a> to view her CV! 📄✨";
+            }
+            
+            return "Beep boop... I'm a cute bot, but I can guide you through Richa's projects, skills, education, experience, or help you get in touch. What would you like to explore? 🐾";
+        }
+
+        function handleQuickReply(text) {
+            chatInput.value = text;
+            const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+            chatForm.dispatchEvent(submitEvent);
+        }
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            addChatMessage(text, true);
+            chatInput.value = '';
+
+            // Loading / Typing indicator
+            const typingId = 'typing-' + Date.now();
+            const typingDiv = document.createElement('div');
+            typingDiv.id = typingId;
+            typingDiv.className = `flex gap-2 items-start`;
+            typingDiv.innerHTML = `
+                <div class="w-6 h-6 rounded-full bg-spotify-green flex-shrink-0 flex items-center justify-center text-black mt-1 shadow-sm">
+                    <i data-lucide="bot" size="12"></i>
+                </div>
+                <div class="bg-[#282828] border border-white/5 text-white rounded-2xl rounded-tl-sm p-3 max-w-[85%] text-sm flex gap-1.5 items-center shadow-sm">
+                    <span class="w-1.5 h-1.5 bg-spotify-text rounded-full animate-bounce"></span>
+                    <span class="w-1.5 h-1.5 bg-spotify-text rounded-full animate-bounce" style="animation-delay: 0.15s"></span>
+                    <span class="w-1.5 h-1.5 bg-spotify-text rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            lucide.createIcons();
+
+            // Simulate AI response delay
+            setTimeout(() => {
+                const el = document.getElementById(typingId);
+                if(el) el.remove();
+                const response = getBotResponse(text);
+                addChatMessage(response, false);
+            }, 800 + Math.random() * 800);
+        });
     </script>
 </body>
-
 </html>
-
