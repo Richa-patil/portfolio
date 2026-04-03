@@ -755,7 +755,7 @@
                     </div>
                     <div class="flex flex-col gap-2 max-w-[85%]">
                         <div class="bg-[#282828] border border-white/5 text-white text-sm rounded-2xl rounded-tl-sm p-3 leading-relaxed shadow-sm">
-                           Beep boop! Hi I'm Bublish <br>
+                          Hi! I'm Bublish <br>
                             How may I help you explore Richa’s portfolio today?&nbsp;
                         </div>
                         <!-- Quick Replies -->
@@ -1372,8 +1372,16 @@ The most critical moment occurs after booking but before joining the session. Pr
             if (input.includes('project') || input.includes('work') || input.includes('portfolio') || input.includes('build')) {
                 return "Oh, she has led some amazing projects!  Like <b>HealBridge</b> (Care Coordination), <b>Paw Rescue</b> (Stray Animal App), and <b>Spiritual Podcasts</b> (UX Research). You can explore them in the <button onclick=\"scrollToSection('projects'); toggleChat();\" class='text-spotify-green hover:text-[#1ed760] transition-colors font-bold underline decoration-2'>Projects section</button>! ";
             }
-            if (input.includes('skill') || input.includes('tool') || input.includes('tech') || input.includes('know')) {
-                return "Her core skills span Product Strategy, UI/UX Design (Figma), No-code Development (FlutterFlow), UX Research, Python, and GTM Strategy. She's super good at bridging the gap between user needs and technical execution! ";
+           if (input.includes('skill') || input.includes('tool') || input.includes('tech') || input.includes('know')) {
+    return `Here are her core skills:
+
+• Product Strategy  
+• UI/UX Design (Figma)  
+• No-code Development (FlutterFlow)  
+• UX Research  
+• Python  
+• GTM Strategy `;
+}
             }
             if (input.includes('contact') || input.includes('email') || input.includes('hire') || input.includes('reach') || input.includes('phone')) {
                 return "Ready to collaborate? Yippee! 🎉 Reach out to her via email at <a href='mailto:patilricha744@gmail.com' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>patilricha744@gmail.com</a> or connect on <a href='https://www.linkedin.com/in/richa-p-b61675235' target='_blank' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>LinkedIn</a>.";
@@ -1382,10 +1390,10 @@ The most critical moment occurs after booking but before joining the session. Pr
                 return "Richa is a Product Enthusiast based in Bangalore! She translates user challenges into seamless product experiences, supported by a solid foundation in Agile methodologies, SDLC, and UI/UX design. ";
             }
             if (input.includes('intern') || input.includes('experience') || input.includes('job')) {
-                return "Right now, Richa is gaining hands-on experience as an <b>AI Research Intern</b> at Coding Junior (Remote) and previously sharpened her visual skills as a <b>Graphic Design Intern</b> at Kanha Aircorn! ";
+                return "Richa has hands-on experience as an <b>AI Research Intern</b> at Coding Junior (Remote) and previously sharpened her visual skills as a <b>Graphic Design Intern</b> at Kanha Aircorn! ";
             }
             if (input.includes('education') || input.includes('degree') || input.includes('study') || input.includes('college')) {
-                return "She is currently pursuing a PG Diploma in <b>Digital Product Design and Management</b> at IIIT Bangalore (2025-26) 🎓 and holds a <b>BCA with First Class Distinction</b> from Sri Balaji University!";
+                return "She is currently pursuing a PG Diploma in <b>Digital Product Design and Management</b> at IIIT Bangalore (2025-26) and holds a <b>BCA with First Class Distinction</b> from Sri Balaji University!";
             }
             if (input.includes('resume') || input.includes('cv') || input.includes('document')) {
                 return "You can download her complete professional profile by <a href='https://drive.google.com/file/d/1Wd9bUEjXqS4ExPe1_wlM44GYQxE6jgds/view?usp=sharing' target='_blank' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>clicking right here</a> to view her CV!";
