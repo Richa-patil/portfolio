@@ -994,9 +994,9 @@
                 tools: "Miro, Figma, Google Forms, Canva, Loom"
             },
             "pawrescue": {
-                category: "Design",
+                category: "App Development",
                 title: "Paw Rescue",
-                subtitle: "Stray Animal Rescue & Adoption Platform",
+                subtitle: "AI-Powered Stray Animal Rescue & Adoption Platform",
                 image: "assets/paw_rescue.png", 
                 externalLink: "https://docs.google.com/document/d/1bZ2B5BKGG596q41zf3GECrUUuNKGrn1k/edit?usp=drivesdk&ouid=101721750729070349032&rtpof=true&sd=true",
                 gallery: [
@@ -1007,12 +1007,91 @@
                     "assets/ngo_pet_img.png", "assets/ngo_pet.png", "assets/status_adopt.png",
                     "assets/ngo_user.png", "assets/ngo_settings.png"
                 ],
-                tags: ["FlutterFlow", "Dart", "UI/UX Design"],
-                overview: "An AI-powered mobile application designed to revolutionize stray animal rescue by connecting everyday heroes with NGOs for rapid reporting, identification, and adoption.",
-                challenge: "Existing stray animal rescue methods are unorganized and lack technological support to streamline operations. There is no unified platform that allows users to report strays, track rescues, and facilitate adoption. The absence of AI-powered identification systems makes it difficult to match reported animals with existing records. This project aims to develop an AI-powered application that provides real-time support for rescuing, reporting, and managing stray animals, enhancing the efficiency of rescue efforts.",
-                solution:`An integrated application that enables real-time reporting, rescue coordination, AI-based animal identification, and adoption management improving response speed and overall rescue efficiency.`,
-                features: ["Real-time Stray Reporting", "AI-Powered Animal Identification", "Rescue Coordination Dashboard", "Adoption Management System", "Community Engagement & Education"],
-                tools: "FlutterFlow, Dart, Firebase, Supabase"
+                tags: ["Flutter", "Supabase", "Frontend Dev", "System Architecture"],
+                hideOverviewHeading: true,
+                challengeHeading: "Real-World Challenges & Solutions",
+                challengeNavText: "Challenges",
+                hideSolutionHeading: true,
+                solutionNavText: "Outcomes & UI",
+                overview: `<h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">The Problem</h4>
+                <p class="text-base text-white/90 leading-relaxed mb-8">Traditional stray animal rescue relies on scattered, manual reporting. Without a unified system, NGOs face delayed response times, duplicate reports, and disorganized adoption pipelines. There is a critical need for a streamlined digital bridge between citizens and animal welfare organizations.</p>
+                
+                <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">Target Users</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 hover:border-spotify-green/50 transition-colors shadow-lg">
+                        <h5 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="user" size="18" class="text-spotify-green"></i> Everyday Citizens</h5>
+                        <p class="text-sm text-[#b3b3b3]">People who spot distressed strays, wish to submit fast geographic reports, or are prospective pet adopters.</p>
+                    </div>
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 hover:border-spotify-green/50 transition-colors shadow-lg">
+                        <h5 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="building" size="18" class="text-spotify-green"></i> NGOs & Shelters</h5>
+                        <p class="text-sm text-[#b3b3b3]">Organizations needing a centralized dashboard to track live reports, deploy rescues, and vet adoption applications.</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">My Contributions</h4>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-4">
+                    <div class="bg-[#181818] border-t-4 border-t-spotify-green rounded-xl p-5 shadow-lg">
+                        <h6 class="text-white font-bold mb-3 text-sm uppercase tracking-wider">Frontend Dev</h6>
+                        <ul class="text-sm text-[#b3b3b3] space-y-2">
+                            <li>• Built cross-platform mobile interfaces using <strong>Flutter & Dart</strong>.</li>
+                            <li>• Integrated <strong>Google Maps API</strong> for interactive geo-tagging.</li>
+                            <li>• Wired frontend components to <strong>Supabase/Firebase</strong> for real-time state management.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-[#181818] border-t-4 border-t-blue-500 rounded-xl p-5 shadow-lg">
+                        <h6 class="text-white font-bold mb-3 text-sm uppercase tracking-wider">UI/UX Implementation</h6>
+                        <ul class="text-sm text-[#b3b3b3] space-y-2">
+                            <li>• Designed intuitive user flows for urgent reporting (image upload, location, severity).</li>
+                            <li>• Built distinct, role-based dashboards separating Public User and NGO functionalities.</li>
+                            <li>• Ensured accessible, mobile-first design patterns.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-[#181818] border-t-4 border-t-purple-500 rounded-xl p-5 shadow-lg">
+                        <h6 class="text-white font-bold mb-3 text-sm uppercase tracking-wider">System Thinking</h6>
+                        <ul class="text-sm text-[#b3b3b3] space-y-2">
+                            <li>• Authored the complete technical documentation.</li>
+                            <li>• Designed database schemas (ER Diagrams) and OOSE Use Case/Sequence models.</li>
+                            <li>• Developed robust White Box and Black Box test plans.</li>
+                        </ul>
+                    </div>
+                </div>`,
+                challenge: `<div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 mt-2">
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl">
+                        <h5 class="text-white font-bold mb-2">Duplicate Reporting</h5>
+                        <p class="text-sm text-white/80 leading-relaxed mb-3"><strong>Challenge:</strong> Multiple users reporting the same stray animal leading to NGO resource wastage and database clutter.</p>
+                        <p class="text-sm text-spotify-green leading-relaxed"><strong>Solution:</strong> Planned the integration flow for a TensorFlow AI pipeline to identify breeds and match incoming photos against recent reports.</p>
+                    </div>
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl">
+                        <h5 class="text-white font-bold mb-2">Real-Time Coordination</h5>
+                        <p class="text-sm text-white/80 leading-relaxed mb-3"><strong>Challenge:</strong> Capturing accurate user-submitted locations and displaying them instantly for NGOs without lag.</p>
+                        <p class="text-sm text-spotify-green leading-relaxed"><strong>Solution:</strong> Leveraged Google Maps API mapped directly to Supabase's real-time capabilities to trigger instant dashboard alerts for shelters.</p>
+                    </div>
+                </div>`,
+                solution: `<h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">Key Features Developed</h4>
+                <ul class="space-y-3 text-base text-[#b3b3b3] mb-8">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="text-spotify-green shrink-0 mt-0.5" size="20"></i>
+                        <span><strong class="text-white">Urgent Rescue Reporting:</strong> Frictionless form flow enabling users to upload images, set severity levels, and geo-tag locations instantly.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="text-spotify-green shrink-0 mt-0.5" size="20"></i>
+                        <span><strong class="text-white">Adoption Pipeline:</strong> End-to-end flow allowing users to browse rescued pets, view profiles, and submit detailed adoption applications to NGOs.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="text-spotify-green shrink-0 mt-0.5" size="20"></i>
+                        <span><strong class="text-white">Role-Based Access Control:</strong> Distinct interfaces and data access logic separating everyday citizens from verified NGO administrators.</span>
+                    </li>
+                </ul>
+
+                <div class="mb-8">
+                    <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">System Architecture & Use Case</h4>
+                    <div class="w-full bg-[#f8f8f8] rounded-xl border border-white/10 overflow-hidden shadow-lg group p-4 flex justify-center">
+                        <img src="assets/assets/useCase.png" alt="System Use Case Diagram" class="max-w-full h-auto object-contain transform group-hover:scale-[1.02] transition-transform duration-500" onerror="this.src='https://placehold.co/1000x600/f8f8f8/121212?text=Use+Case+Diagram'">
+                    </div>
+                </div>`,
+                features: ["Cross-Platform Mobile UI (Flutter)", "Interactive Maps Integration", "Relational Database Design", "Comprehensive System Documentation", "Component-Driven Design"],
+                role: "Frontend Developer & Docs Lead",
+                tools: "Flutter, Dart, Supabase, Firebase, TensorFlow, Maps API"
             },
             "spiritual": {
                 category: "Research Project",
