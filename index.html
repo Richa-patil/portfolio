@@ -188,7 +188,7 @@
                 </div>
 
                 <div class="flex items-center gap-4">
-                    <a href="https://drive.google.com/file/d/1NQxHXd-Ct6Z5Isckfq3StQ_Joh11U2yN/view?usp=sharing" target="_blank" class="px-6 py-2.5 bg-spotify-white hover:bg-gray-200 text-black text-sm font-bold rounded-full transition-all transform hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                    <a href="https://drive.google.com/file/d/1NQxHXd-Ct6Z5Isckfq3StQ_Joh11U2yN/view?usp=drive_link" target="_blank" class="px-6 py-2.5 bg-spotify-white hover:bg-gray-200 text-black text-sm font-bold rounded-full transition-all transform hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                      Resume
                     </a>
                 </div>
@@ -760,16 +760,13 @@
             <i data-lucide="arrow-left" size="28"></i>
         </button>
 
-        <!-- Project Dashboard Sidebar (Fixed Left) -->
-        <aside class="hidden md:flex flex-col w-64 h-full fixed left-0 top-0 bg-[#0a0a0a] border-r border-white/5 z-[110] pt-10 px-5 shadow-2xl">
-            <!-- Back Button -->
-            <button onclick="closeProject()" class="flex items-center gap-3 text-spotify-text hover:text-white transition-colors mb-12 group pl-2 w-fit">
-                <div class="p-2 rounded-full bg-[#181818] group-hover:bg-spotify-highlight border border-white/5 transition-all group-hover:-translate-x-1">
-                    <i data-lucide="arrow-left" size="18"></i>
-                </div>
-                <span class="text-sm font-bold tracking-wide">Back</span>
-            </button>
+        <!-- Close Button (Top Right - All screens) -->
+        <button onclick="closeProject()" class="fixed top-6 right-6 p-3 rounded-full bg-[#181818] border border-white/10 hover:bg-spotify-highlight text-spotify-text hover:text-white transition-all hover:scale-105 z-[110] shadow-xl group">
+            <i data-lucide="x" size="28" class="transition-transform group-hover:rotate-90"></i>
+        </button>
 
+        <!-- Project Dashboard Sidebar (Fixed Left) -->
+        <aside class="hidden md:flex flex-col w-64 h-full fixed left-0 top-0 bg-[#0a0a0a] border-r border-white/5 z-[110] pt-12 px-5 shadow-2xl">
             <h3 class="text-[10px] font-bold text-spotify-text uppercase tracking-[0.2em] mb-4 pl-3">Project Navigation</h3>
             
             <nav id="project-overlay-nav" class="flex flex-col gap-2 w-full relative">
@@ -778,10 +775,10 @@
                     Overview
                 </button>
                 <button type="button" class="project-overlay-nav-item w-full text-left px-3 py-3 rounded-lg text-sm font-semibold transition-all border-l-4 border-transparent text-[#b3b3b3] hover:text-white hover:bg-white/5" data-target="modal-challenge-section">
-                    Challenge
+                    <span id="nav-challenge-text">Challenge</span>
                 </button>
                 <button type="button" class="project-overlay-nav-item w-full text-left px-3 py-3 rounded-lg text-sm font-semibold transition-all border-l-4 border-transparent text-[#b3b3b3] hover:text-white hover:bg-white/5" data-target="modal-solution-section">
-                    Solution
+                    <span id="nav-solution-text">Solution</span>
                 </button>
                 <button type="button" id="project-overlay-gallery-nav" class="project-overlay-nav-item w-full text-left px-3 py-3 rounded-lg text-sm font-semibold transition-all border-l-4 border-transparent text-[#b3b3b3] hover:text-white hover:bg-white/5 hidden" data-target="modal-gallery-section">
                     Gallery
@@ -796,7 +793,7 @@
         <div class="relative min-h-screen w-full flex flex-col items-center pt-24 pb-20 px-6 md:pl-[280px] lg:pl-[320px]">
             
             <!-- Project Header -->
-            <div class="w-full max-w-5xl mb-12">
+            <div class="w-full max-w-6xl mb-12">
                 <div id="modal-category" class="text-xs font-bold text-white uppercase tracking-widest mb-2">Project</div>
                 <h1 id="modal-title" class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">Title</h1>
                 <p id="modal-subtitle" class="text-spotify-text text-lg font-medium mb-6">Subtitle</p>
@@ -815,19 +812,19 @@
             </div>
 
             <!-- Content Area -->
-            <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-12">
                  <!-- Main Content -->
                  <div class="lg:col-span-2 space-y-16">
                      <!-- Overview & Hook -->
                      <div id="modal-overview-section" class="scroll-mt-28">
-                         <h3 class="text-xl font-bold text-white mb-4">The Context & Hook</h3>
-                         <p id="modal-overview" class="text-white/95 text-lg md:text-xl font-medium leading-relaxed whitespace-pre-line">
-                         </p>
+                         <h3 id="modal-overview-title" class="text-xl font-bold text-white mb-4">The Context & Hook</h3>
+                         <div id="modal-overview" class="text-white/95 text-lg md:text-xl font-medium leading-relaxed whitespace-pre-line">
+                         </div>
                      </div>
 
                      <!-- Highlighted Challenge Container -->
                      <div id="modal-challenge-section" class="bg-spotify-green/10 border-l-4 border-spotify-green p-6 md:p-8 rounded-r-xl relative overflow-hidden shadow-lg scroll-mt-28">
-                         <h3 class="text-xl font-bold text-spotify-green mb-4 relative z-10">
+                         <h3 id="modal-challenge-title" class="text-xl font-bold text-spotify-green mb-4 relative z-10">
                              The Challenge
                          </h3>
                          <p id="modal-challenge" class="text-white/90 leading-relaxed text-base md:text-lg relative z-10 whitespace-pre-line">
@@ -836,7 +833,7 @@
 
                      <!-- Solution -->
                      <div id="modal-solution-section" class="scroll-mt-28">
-                         <h3 class="text-xl font-bold text-white mb-4">The Solution</h3>
+                         <h3 id="modal-solution-title" class="text-xl font-bold text-white mb-4">The Solution</h3>
                          <p id="modal-solution" class="text-spotify-text leading-relaxed text-base md:text-lg whitespace-pre-line">
                          </p>
                      </div>
@@ -1055,11 +1052,169 @@
                 title: "LEAP",
                 subtitle: "Comprehensive User Experience Research",
                 externalLink: "https://docs.google.com/document/d/1VVMr2U39qxlSAidVF0mrRhRfI9llW51TR_lI2uRc4W4/edit?usp=sharing",
-                gallery: [ "assets/journey_Map.png" ],
                 tags: ["UX Research", "Usability Testing", "User Interviews"],
-                overview: `Students planning to study abroad often feel overwhelmed by the amount of information and decisions they must make. This project analyzes the end-to-end journey of booking a counseling demo session on Leap, identifying friction points and opportunities to improve clarity, trust, and user confidence.\n\nUser Persona - Aaravi (21):\n• Profile: Final-year undergrad exploring master's programs.\n• Goals: Understand the process, get expert guidance, clarify admission timelines.\n• Pain Points: Information overload, uncertainty on where to begin, hesitation before committing.`,
-                challenge: `Small issues in the booking journey such as unclear messaging, confusing inputs, or missing context can reduce user confidence at critical decision moments.\n\nKey Observations across the User Journey:\n• Discovery Stage: Well-structured navigation, but presents a large amount of information immediately.\n• Booking Form: Clean interface, but the intake month selection is unclear for early-stage users. Unrelated sidebar options (like IELTS prep) interrupt the flow.\n• Booking Confirmation: Ambiguous messaging ("Book Shortlist Discussion") leaves users uncertain about their booking status.\n• Slot Selection: Only one visible slot with weak visual hierarchy and a disconnected CTA.\n• Session Entry: Good audio/video testing, but missing crucial context like the Counselor's name, session topic, and expected duration.`,
-                solution: `Synthesized findings into actionable insights and strategic recommendations to improve clarity and trust.\n\nKey Insights & Recommendations:\n1. Highlight Free Counseling Earlier: Place CTAs prominently to increase discovery.\n2. Clarify Intake Month: Add helper text for undecided users to reduce hesitation.\n3. Reduce Distractions: Hide secondary options and move IELTS promotion post-booking.\n4. Improve Confirmation Messaging: Provide explicit confirmation with counselor name, session time, and next steps.\n5. Enhance Slot Selection: Show multiple slots with improved visual hierarchy.\n6. Add Session Context Before Joining: Display counselor name, topic, and duration to reduce anxiety.\n\nKey Takeaway & Impact:\nThe most critical moment occurs after booking but before joining the session. Providing clearer confirmation, slot visibility, and session context transforms uncertainty into confidence, ultimately increasing counseling participation and strengthening trust in Leap's platform.`,
+                hideOverviewHeading: true,
+                challengeHeading: "User Journey Documentation",
+                challengeNavText: "User Journey",
+                hideSolutionHeading: true,
+                solutionNavText: "Recommendations",
+                overview: `<h4 class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">Objective</h4>
+                <p class="text-base text-white/90 mb-8 !whitespace-normal">This exercise evaluates the user experience of booking a counseling demo session on the Leap platform from discovery to post-booking. It aims to map the full journey, highlight friction points and positive moments, and recommend improvements.</p>
+                
+                <h4 class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">User Context</h4>
+                <p class="text-base text-white/90 mb-8 !whitespace-normal">Students exploring study abroad options often struggle with unclear guidance, confusing processes, unreliable information, and low trust in counseling services. Therefore, the platform must prioritize clarity, credibility, and guided support throughout the experience.</p>
+                
+                <h4 class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-3 mt-8">User Persona</h4>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 font-sans">
+                    <!-- Left Profile Column -->
+                    <div class="md:col-span-4 bg-[#181818] border border-white/5 rounded-2xl p-6 flex flex-col items-center h-full shadow-lg">
+                        <h5 class="text-2xl font-bold text-white mb-4">Aaravi</h5>
+                        <div class="w-28 h-28 rounded-full bg-[#282828] mb-5 flex items-center justify-center border-[3px] border-spotify-green overflow-hidden shadow-[0_0_15px_rgba(29,185,84,0.2)]">
+                            <img src="https://placehold.co/150x150/181818/1DB954?text=A" alt="Aaravi" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-8 h-1 bg-spotify-green rounded-full mb-6"></div>
+                        <div class="text-sm text-[#b3b3b3] space-y-5 w-full flex-grow flex flex-col justify-center">
+                            <div class="flex justify-center border-b border-white/5 pb-4">
+                                <span class="text-white font-bold mr-2">Age:</span> <span>21</span>
+                            </div>
+                            <div class="flex flex-col border-b border-white/5 pb-4 gap-1.5 text-center">
+                                <strong class="text-white">Background</strong> 
+                                <span class="text-xs leading-relaxed">Final-year undergrad planning to pursue a master’s degree abroad.</span>
+                            </div>
+                            <div class="flex flex-col gap-1.5 text-center">
+                                <strong class="text-white">Goals</strong> 
+                                <span class="text-xs leading-relaxed">Find best fit country/course, get expert guidance, and learn admission timelines.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Content Columns -->
+                    <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
+                        <!-- Behaviors -->
+                        <div class="bg-[#181818] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors h-full flex flex-col shadow-lg">
+                            <h6 class="text-white font-bold mb-4 text-base">Behavior</h6>
+                            <ul class="text-xs text-[#b3b3b3] space-y-3 flex-grow">
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Searches online via blogs, YouTube, & ed platforms</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Compares websites for university/exam requirements</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Seeks credible guidance over just information</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Prefers step-by-step guidance</span></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Pain Points -->
+                        <div class="bg-[#181818] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors h-full flex flex-col shadow-lg">
+                            <h6 class="text-white font-bold mb-4 text-base">Pain Points</h6>
+                            <ul class="text-xs text-[#b3b3b3] space-y-3 flex-grow">
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Confused where to begin</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Unsure about application timelines & intakes</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Overwhelmed by information overload</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Hard to determine trustworthy sources</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Hesitant to commit without clear value</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Needs -->
+                        <div class="bg-[#181818] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors h-full flex flex-col shadow-lg">
+                            <h6 class="text-white font-bold mb-4 text-base">Needs</h6>
+                            <ul class="text-xs text-[#b3b3b3] space-y-3 flex-grow">
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Clear, simple guidance about the process</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Trustworthy advice from experts</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Step-by-step experience to reduce confusion</span></li>
+                                <li class="flex gap-2.5 items-start"><span class="text-spotify-green mt-0.5">•</span> <span class="leading-relaxed">Reassurance to make informed decisions</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Quote Container -->
+                        <div class="bg-[#1DB954]/5 border border-[#1DB954]/20 rounded-2xl p-6 flex flex-col justify-center relative overflow-hidden h-full shadow-lg">
+                            <h6 class="text-5xl text-spotify-green font-serif font-black absolute top-2 left-3 opacity-20">"</h6>
+                            <p class="text-sm text-white italic relative z-10 text-center font-medium px-3 leading-relaxed mt-2">I need to figure out which country and course fits my goals, but I don't know where to start or who to trust.</p>
+                            <h6 class="text-5xl text-spotify-green font-serif font-black absolute bottom-[-15px] right-3 opacity-20">"</h6>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-3 mt-12">User Journey Map</h4>
+                <div class="w-full rounded-2xl shadow-xl mb-8 group overflow-hidden cursor-zoom-in border border-white/5 relative">
+                    <img src="assets/journey_Map.png" alt="User Journey Map" class="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.src='https://placehold.co/1000x500/121212/1DB954?text=User+Journey+Map'">
+                </div>`,
+                challenge: `<strong class="text-white block mt-2">Step 1: Discovering the Platform</strong>
+                <p class="text-sm mt-2">The journey begins when the user lands on the Leap website and starts exploring options related to studying abroad.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong>Observations:</strong> The navigation menu provides several options such as Study Abroad, Exams, Resources, Blog, Events. The Study Abroad section opens a dropdown menu that displays countries, cities, courses, and universities.</li>
+                    <li><strong>User Emotion:</strong> Curious but slightly overwhelmed by the amount of information presented at once.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 2: Exploring Study Abroad Options</strong>
+                <p class="text-sm mt-2">The dropdown menu presents detailed options such as Countries, Top cities, Popular courses, and Universities.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong class="text-spotify-green">Positive Experience:</strong> The menu is well-structured and organized, making it easy for users to browse through different study destinations and academic options.</li>
+                    <li><strong class="text-red-400">Friction:</strong> For students who are still in the early stages of exploration, seeing many options at once can feel overwhelming and may make it difficult to decide where to begin.</li>
+                    <li><strong>User Emotion:</strong> Interested but unsure about which direction to explore first.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 3: Starting the Counseling Demo Booking</strong>
+                <p class="text-sm mt-2">The user begins the process of booking a counseling demo session by filling out the required details.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong>Observations:</strong> The form includes questions related to Study destination, Course interest, Intake month, and Additional preferences. The overall UI design is simple, clean, and easy to understand.</li>
+                    <li><strong class="text-spotify-green">Positive Experience:</strong> The booking process is smooth and not tedious. The interface allows users to proceed step-by-step without unnecessary complexity.</li>
+                    <li><strong>User Emotion:</strong> Comfortable and confident while completing the form.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 4: Course Month Selection</strong>
+                <p class="text-sm mt-2">During the booking process, the user is asked to select a course or intake month.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong class="text-red-400">Friction:</strong> This step can create confusion because it is not entirely clear what the month represents or how users should choose if they are still exploring their study plans. Users who have not finalized their timeline may hesitate while making this selection.</li>
+                    <li><strong>User Emotion:</strong> Momentary hesitation and uncertainty.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 5: Sidebar Options During the Process</strong>
+                <p class="text-sm mt-2">While completing the form, a sidebar appears showing additional options.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong class="text-red-400">Friction:</strong> These options appear in the middle of the booking flow and may distract users from completing the primary task. Users may wonder whether they are required to interact with these options before proceeding.</li>
+                    <li><strong>User Emotion:</strong> Minor confusion and slight disruption in the flow.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 6: IELTS Preparation Option</strong>
+                <p class="text-sm mt-2">The booking process also presents an IELTS preparation option.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong>Observation:</strong> IELTS preparation is a course offered by the platform, but it appears within the counseling booking flow.</li>
+                    <li><strong class="text-red-400">Friction:</strong> This placement may create confusion because IELTS preparation is not directly part of the counseling session itself. Users may feel unsure about whether selecting this option is required for the counseling process.</li>
+                    <li><strong>User Emotion:</strong> Uncertainty about the purpose of this option.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 7: Final Booking Confirmation</strong>
+                <p class="text-sm mt-2">After completing the form, the user reaches the final stage of the booking process.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong class="text-red-400">Friction:</strong> The confirmation message displays "Book Shortlist Discussion" instead of clearly confirming that the demo counseling session has been successfully booked. This wording can make users unsure whether the session has actually been confirmed.</li>
+                    <li><strong>User Emotion:</strong> Uncertainty about whether the booking was completed successfully.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 8: Slot Selection</strong>
+                <p class="text-sm mt-2">After completing the booking process, the user is required to select a time slot for the counseling session.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong>Observations:</strong> The page asks users "When are you available?" and provides date options along with available time slots. Elements visible on the screen include: Date selection, Time block categories, A specific slot, CTA button. The interface is simple and minimal.</li>
+                    <li><strong class="text-red-400">Friction:</strong> Only one visible slot is displayed in the evening section, which may make users wonder whether more slots are available. The visual hierarchy does not clearly guide users through the steps of selecting a date, choosing a time, and confirming the booking. The CTA button appears somewhat disconnected.</li>
+                    <li><strong>User Emotion:</strong> Slight uncertainty while selecting the slot.</li>
+                </ul>
+
+                <strong class="text-white block mt-6">Step 9: Joining the Counseling Session</strong>
+                <p class="text-sm mt-2">After selecting a time slot, users reach the session entry page, where they prepare to join the live counseling session.</p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-[#b3b3b3]">
+                    <li><strong>Observations:</strong> The interface includes "Get Started" message, Instructions to set up audio and video, Number of participants in the session, Username field, "Join Now" button.</li>
+                    <li><strong class="text-spotify-green">Positive Experience:</strong> The interface allows users to set up their audio and video before joining, which helps reduce technical issues during the session.</li>
+                    <li><strong class="text-red-400">Friction:</strong> The screen does not clearly provide context about the session, such as Counselor name, Session topic, Expected duration.</li>
+                    <li><strong>User Emotion:</strong> Neutral but slightly uncertain due to the lack of session context.</li>
+                </ul>`,
+                solution: `<h4 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2">Recommendations</h4>
+                <ul class="list-decimal pl-5 space-y-4 text-sm text-[#b3b3b3]">
+                    <li><strong class="text-white">Highlight Free Counseling Earlier:</strong> Place the "Book Free Counseling Demo" button more prominently (e.g., near the top of the page). This helps students quickly recognize that guidance is available and encourages engagement.</li>
+                    <li><strong class="text-white">Clarify Intake Month Selection:</strong> Add helper text such as: "Select the month you plan to start your studies. If unsure, choose the closest upcoming intake." This reduces confusion for users who are still exploring timelines.</li>
+                    <li><strong class="text-white">Reduce Sidebar Distractions:</strong> Minimize or hide additional sidebar options during the booking flow to keep users focused on completing the form.</li>
+                    <li><strong class="text-white">Separate IELTS Preparation from Counseling:</strong> Present IELTS preparation as a separate offering rather than including it in the counseling booking flow to avoid confusion.</li>
+                    <li><strong class="text-white">Improve Booking Confirmation Messaging:</strong> Replace the message "Book Shortlist Discussion" with a clearer confirmation such as: "Your counseling demo session has been successfully booked." Include key details like session time, counselor information, and next steps.</li>
+                    <li><strong class="text-white">Improve Slot Selection UI:</strong> Show multiple available time slots in a clearer layout and visually highlight the selected slot. This makes it easier for users to compare and choose a convenient time.</li>
+                    <li><strong class="text-white">Add Session Context Before Joining:</strong> Display key details before joining the session, such as counselor name, session topic, and estimated duration, to help users feel prepared.</li>
+                </ul>`,
                 features: ["User Journey Mapping", "Usability Testing", "Heuristic Evaluation", "Persona Development"],
                 role: "UX Researcher",
                 tools: "Figma, Miro, UserTesting, Notion"
@@ -1130,9 +1285,34 @@
             document.getElementById('modal-category').innerText = data.category;
             document.getElementById('modal-title').innerText = data.title;
             document.getElementById('modal-subtitle').innerText = data.subtitle;
-            document.getElementById('modal-overview').innerText = data.overview;
-            document.getElementById('modal-challenge').innerText = data.challenge;
-            document.getElementById('modal-solution').innerText = data.solution;
+            
+            const overviewTitle = document.getElementById('modal-overview-title');
+            if (data.hideOverviewHeading) {
+                overviewTitle.classList.add('hidden');
+            } else {
+                overviewTitle.classList.remove('hidden');
+                overviewTitle.innerText = data.overviewHeading || "The Context & Hook";
+            }
+            
+            document.getElementById('modal-overview').innerHTML = data.overview;
+            
+            document.getElementById('modal-challenge-title').innerText = data.challengeHeading || "The Challenge";
+            const navChallengeText = document.getElementById('nav-challenge-text');
+            if (navChallengeText) navChallengeText.innerText = data.challengeNavText || "Challenge";
+            
+            const solutionTitle = document.getElementById('modal-solution-title');
+            if (data.hideSolutionHeading) {
+                solutionTitle.classList.add('hidden');
+            } else {
+                solutionTitle.classList.remove('hidden');
+                solutionTitle.innerText = data.solutionHeading || "The Solution";
+            }
+            
+            const navSolutionText = document.getElementById('nav-solution-text');
+            if (navSolutionText) navSolutionText.innerText = data.solutionNavText || "Solution";
+
+            document.getElementById('modal-challenge').innerHTML = data.challenge;
+            document.getElementById('modal-solution').innerHTML = data.solution;
             document.getElementById('modal-role').innerText = data.role || "Product Designer";
             document.getElementById('modal-tools').innerText = data.tools;
 
@@ -1363,7 +1543,7 @@
             if (input.includes('about') || input.includes('who is') || input.includes('bio')) return "Richa is a Product Enthusiast based in Bangalore! She translates user challenges into seamless product experiences, supported by a solid foundation in Agile methodologies, SDLC, and UI/UX design.";
             if (input.includes('intern') || input.includes('experience') || input.includes('job')) return "Richa has hands-on experience as an <b>AI Research Intern</b> at Coding Junior (Remote) and previously sharpened her visual skills as a <b>Graphic Design Intern</b> at Kanha Aircorn!";
             if (input.includes('education') || input.includes('degree') || input.includes('study') || input.includes('college')) return "She is currently pursuing a PG Diploma in <b>Digital Product Design and Management</b> at IIIT Bangalore (2025-26) and holds a <b>BCA with First Class Distinction</b> from Sri Balaji University!";
-            if (input.includes('resume') || input.includes('cv') || input.includes('document')) return "You can download her complete professional profile by <a href='https://drive.google.com/file/d/1NQxHXd-Ct6Z5Isckfq3StQ_Joh11U2yN/view?usp=sharing' target='_blank' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>clicking right here</a> to view her CV!";
+            if (input.includes('resume') || input.includes('cv') || input.includes('document')) return "You can download her complete professional profile by <a href='https://drive.google.com/file/d/1NQxHXd-Ct6Z5Isckfq3StQ_Joh11U2yN/view?usp=drive_link' target='_blank' class='text-spotify-green hover:text-[#1ed760] font-bold underline decoration-2'>clicking right here</a> to view her CV!";
             return "Beep boop... I'm a cute bot, but I can guide you through Richa's projects, skills, education, experience, or help you get in touch. What would you like to explore?";
         }
 
