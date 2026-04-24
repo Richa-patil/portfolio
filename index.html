@@ -274,176 +274,160 @@
                 </div>
             </section>
 
-            <!-- PROJECTS SECTION -->
-            <section id="projects" class="py-20 overflow-hidden">
-                <div class="flex items-end justify-between mb-8 reveal">
-                    <h2 class="text-2xl font-bold text-white">Featured Projects</h2>
+            <!-- PROJECTS SECTION (BENTO GRID) -->
+            <section id="projects" class="py-20 min-h-[80vh]">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 reveal gap-6">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight mb-2">Featured Projects</h2>
+                        <p class="text-spotify-text text-sm font-medium">A showcase of my product thinking, design, and research.</p>
+                    </div>
+                    
+                    <!-- Filtering Controls -->
+                    <div class="flex flex-wrap items-center gap-2" id="project-filters">
+                        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold bg-white text-black transition-all duration-300" data-filter="all">All</button>
+                        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold bg-[#181818] border border-white/10 text-[#b3b3b3] hover:text-white hover:border-white/30 transition-all duration-300" data-filter="ux">UX Research</button>
+                        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold bg-[#181818] border border-white/10 text-[#b3b3b3] hover:text-white hover:border-white/30 transition-all duration-300" data-filter="design">Design</button>
+                        <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold bg-[#181818] border border-white/10 text-[#b3b3b3] hover:text-white hover:border-white/30 transition-all duration-300" data-filter="product">Product</button>
+                    </div>
                 </div>
                 
-                <!-- ROW 1: LARGE PROJECTS -->
-                <div class="overflow-hidden relative reveal w-full">
-                    <div class="absolute top-0 left-0 w-8 md:w-20 h-full bg-gradient-to-r from-spotify-base to-transparent z-10 pointer-events-none"></div>
-                    <div class="absolute top-0 right-0 w-8 md:w-20 h-full bg-gradient-to-l from-spotify-base to-transparent z-10 pointer-events-none"></div>
-
-                    <div class="flex gap-6 pb-8 pt-2 w-max animate-marquee hover:[animation-play-state:paused] active:[animation-play-state:paused] scrolling-track">
+                <!-- BENTO GRID CONTAINER -->
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[280px] reveal delay-100" style="grid-auto-flow: dense;" id="bento-grid">
+                    
+                    <!-- LARGE TILE: HealBridge -->
+                    <div onclick="openProject('healbridge')" class="bento-tile group relative overflow-hidden rounded-2xl bg-[#181818]/60 backdrop-blur-md border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer flex flex-col justify-end p-6 md:col-span-2 md:row-span-2 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(29,185,84,0.15)] transform-gpu" style="transition-property: transform, opacity, box-shadow, border-color;" data-category="product">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="assets/BMC.png" alt="HealBridge" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 z-0" onerror="this.src='https://placehold.co/800x800/121212/1DB954?text=HealBridge'">
                         
-                        <!-- Project Card 1: HealBridge -->
-                        <div onclick="openProject('healbridge')" class="shrink-0 w-[85vw] md:w-[600px] lg:w-[700px] bg-spotify-card hover:bg-[#282828] p-5 md:p-6 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-2 shadow-lg border border-transparent hover:border-white/10 flex flex-col h-full">
-                            <div class="w-full h-48 md:h-64 bg-[#121212] rounded-lg mb-6 overflow-hidden relative border border-white/5 group-hover:border-white/10 transition-colors">
-                                <img src="assets/BMC.png" alt="HealBridge Preview" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x400/121212/1DB954?text=HealBridge'">
-                            </div>
-
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="w-14 h-14 bg-[#121212] flex items-center justify-center rounded-full text-spotify-green shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0">
-                                     <i data-lucide="target" size="28"></i>
-                                </div>
-                                <span class="text-xs font-bold text-spotify-text bg-[#121212] px-3 py-1 rounded-full border border-white/5 group-hover:border-spotify-green/30 transition-colors">2025</span>
-                            </div>
-                            
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-spotify-green transition-colors">HealBridge</h3>
-                            <p class="text-sm md:text-base text-spotify-text mb-4">Bridging the gap between hospital discharge and home recovery through coordinated digital care.</p>
-                            
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                                <span class="text-xs font-bold text-spotify-text uppercase tracking-wider group-hover:text-white transition-colors">Academic</span>
-                                <div class="w-10 h-10 rounded-full bg-spotify-green flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                    <i data-lucide="arrow-up-right" size="20"></i>
+                        <div class="relative z-20 mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold rounded-full bg-green-500/20 text-green-400 border border-green-500/30 backdrop-blur-md shadow-sm">Product</span>
+                                <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                    <i data-lucide="arrow-up-right" size="16" class="text-white"></i>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Project Card 2: Paw-Rescue -->
-                        <div onclick="openProject('pawrescue')" class="shrink-0 w-[85vw] md:w-[600px] lg:w-[700px] bg-spotify-card hover:bg-[#282828] p-5 md:p-6 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-2 shadow-lg border border-transparent hover:border-white/10 flex flex-col h-full">
-                            <div class="w-full h-48 md:h-64 bg-[#121212] rounded-lg mb-6 overflow-hidden relative border border-white/5 group-hover:border-white/10 transition-colors">
-                                <img src="assets/PW HEAD.png" alt="Paw Rescue Preview" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x400/121212/1DB954?text=Paw+Rescue'">
-                            </div>
-
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="w-14 h-14 bg-[#121212] flex items-center justify-center rounded-full text-spotify-green shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0">
-                                     <i data-lucide="heart-handshake" size="28"></i>
-                                </div>
-                                <span class="text-xs font-bold text-spotify-text bg-[#121212] px-3 py-1 rounded-full border border-white/5 group-hover:border-spotify-green/30 transition-colors">2025</span>
-                            </div>
-                            
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-spotify-green transition-colors">Paw Rescue App</h3>
-                            <p class="text-sm md:text-base text-spotify-text mb-4">A technology-driven platform that enables faster stray animal rescue, identification, and adoption.</p>
-                            
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                                <span class="text-xs font-bold text-spotify-text uppercase tracking-wider group-hover:text-white transition-colors">Platform Design</span>
-                                <div class="w-10 h-10 rounded-full bg-spotify-green flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                    <i data-lucide="arrow-up-right" size="20"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 3: Spiritual Podcasts -->
-                        <div onclick="openProject('spiritual')" class="shrink-0 w-[85vw] md:w-[600px] lg:w-[700px] bg-spotify-card hover:bg-[#282828] p-5 md:p-6 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-2 shadow-lg border border-transparent hover:border-white/10 flex flex-col h-full">
-                            <div class="w-full h-48 md:h-64 bg-[#121212] rounded-lg mb-6 overflow-hidden relative border border-white/5 group-hover:border-white/10 transition-colors">
-                                <img src="assets/Spiritual.png" alt="Spiritual Podcasts Preview" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x400/121212/1DB954?text=Spiritual+Podcasts'">
-                            </div>
-
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="w-14 h-14 bg-[#121212] flex items-center justify-center rounded-full text-spotify-green shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0">
-                                     <i data-lucide="search" size="28"></i>
-                                </div>
-                                <span class="text-xs font-bold text-spotify-text bg-[#121212] px-3 py-1 rounded-full border border-white/5 group-hover:border-spotify-green/30 transition-colors">2025</span>
-                            </div>
-                            
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-spotify-green transition-colors"> Spiritual Podcasts </h3>
-                            <p class="text-sm md:text-base text-spotify-text mb-4">Exploring how India’s youth engage with spirituality through digital audio platforms.</p>
-                            
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                                <span class="text-xs font-bold text-spotify-text uppercase tracking-wider group-hover:text-white transition-colors">UX Research</span>
-                                <div class="w-10 h-10 rounded-full bg-spotify-green flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                    <i data-lucide="arrow-up-right" size="20"></i>
-                                </div>
+                            <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2 tracking-tight group-hover:text-green-400 transition-colors drop-shadow-md">HealBridge</h3>
+                            <p class="text-sm text-[#e0e0e0] line-clamp-2 max-w-md">Bridging the gap between hospital discharge and home recovery through coordinated digital care.</p>
+                            <div class="flex items-center gap-4 mt-5 text-xs font-medium text-[#b3b3b3]">
+                                <span class="flex items-center gap-1.5"><i data-lucide="clock" size="14"></i> 3 months</span>
+                                <span class="flex items-center gap-1.5"><i data-lucide="user" size="14"></i> Product Strategist</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="flex items-end justify-between mt-8 mb-6 reveal">
-                    <h3 class="text-xl font-bold text-white">More Projects</h3>
-                </div>
-
-                <!-- ROW 2: SMALL PROJECTS -->
-                <div class="overflow-hidden relative reveal delay-100 w-full">
-                    <div class="absolute top-0 left-0 w-8 md:w-20 h-full bg-gradient-to-r from-spotify-base to-transparent z-10 pointer-events-none"></div>
-                    <div class="absolute top-0 right-0 w-8 md:w-20 h-full bg-gradient-to-l from-spotify-base to-transparent z-10 pointer-events-none"></div>
-
-                    <div class="flex gap-6 pb-8 pt-2 w-max animate-marquee-reverse hover:[animation-play-state:paused] active:[animation-play-state:paused] scrolling-track">
+                    <!-- MEDIUM TILE: Spiritual Podcasts -->
+                    <div onclick="openProject('spiritual')" class="bento-tile group relative overflow-hidden rounded-2xl bg-[#181818] border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer flex flex-col justify-end p-6 md:col-span-2 md:row-span-1 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(168,85,247,0.15)] transform-gpu" style="transition-property: transform, opacity, box-shadow, border-color;" data-category="ux">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="assets/Spiritual.png" alt="Spiritual Podcasts" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 z-0" onerror="this.src='https://placehold.co/800x400/121212/A855F7?text=Spiritual+Podcasts'">
                         
-                        <!-- Project Card 4: LEAP -->
-                        <div onclick="openProject('leap')" class="shrink-0 w-[80vw] md:w-[400px] lg:w-[450px] bg-spotify-card hover:bg-[#282828] p-6 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-2 shadow-lg border border-transparent hover:border-white/10 flex flex-col h-full">
-                            <div class="w-full h-40 bg-[#121212] rounded-lg mb-6 overflow-hidden relative border border-white/5 group-hover:border-white/10 transition-colors">
-                                <img src="assets/journey_Map.png" alt="LEAP UX Research Preview" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/121212/1DB954?text=LEAP+UX'">
-                            </div>
-
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-14 h-14 bg-[#121212] flex items-center justify-center rounded-full text-spotify-green shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0">
-                                     <i data-lucide="users" size="28"></i>
-                                </div>
-                                <span class="text-xs font-bold text-spotify-text bg-[#121212] px-3 py-1 rounded-full border border-white/5 group-hover:border-spotify-green/30 transition-colors">2026</span>
-                            </div>
-                            
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-spotify-green transition-colors">LEAP</h3>
-                            <p class="text-sm text-spotify-text mb-6 line-clamp-2">In-depth UX research exploring user behaviors, workflows, and usability testing.</p>
-                            
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                                <span class="text-xs font-bold text-spotify-text uppercase tracking-wider group-hover:text-white transition-colors">UX Research</span>
-                                <div class="w-8 h-8 rounded-full bg-spotify-green flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                    <i data-lucide="arrow-up-right" size="18"></i>
+                        <div class="relative z-20 mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 backdrop-blur-md shadow-sm">UX Research</span>
+                                <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                    <i data-lucide="arrow-up-right" size="16" class="text-white"></i>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Project Card 5: Cherrywork -->
-                        <div onclick="openProject('cherrywork')" class="shrink-0 w-[80vw] md:w-[400px] lg:w-[450px] bg-spotify-card hover:bg-[#282828] p-6 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-2 shadow-lg border border-transparent hover:border-white/10 flex flex-col h-full">
-                            <div class="w-full h-40 bg-[#121212] rounded-lg mb-6 overflow-hidden relative border border-white/5 group-hover:border-white/10 transition-colors">
-                                <img src="assets/CherryWork.png" alt="Cherrywork Preview" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/121212/1DB954?text=Cherrywork'">
-                            </div>
-
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-14 h-14 bg-[#121212] flex items-center justify-center rounded-full text-spotify-green shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0">
-                                     <i data-lucide="briefcase" size="28"></i>
-                                </div>
-                                <span class="text-xs font-bold text-spotify-text bg-[#121212] px-3 py-1 rounded-full border border-white/5 group-hover:border-spotify-green/30 transition-colors">2025</span>
-                            </div>
-                            
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-spotify-green transition-colors">Cherrywork</h3>
-                            <p class="text-sm text-spotify-text mb-6 line-clamp-2">SaaS Product Marketing strategy and GTM execution for B2B solutions.</p>
-                            
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                                <span class="text-xs font-bold text-spotify-text uppercase tracking-wider group-hover:text-white transition-colors">SaaS Marketing</span>
-                                <div class="w-8 h-8 rounded-full bg-spotify-green flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                    <i data-lucide="arrow-up-right" size="18"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 6: Music App -->
-                        <div onclick="openProject('musicapp')" class="shrink-0 w-[80vw] md:w-[400px] lg:w-[450px] bg-spotify-card hover:bg-[#282828] p-6 rounded-xl transition-all duration-300 cursor-pointer group hover:-translate-y-2 shadow-lg border border-transparent hover:border-white/10 flex flex-col h-full">
-                            <div class="w-full h-40 bg-[#121212] rounded-lg mb-6 overflow-hidden relative border border-white/5 group-hover:border-white/10 transition-colors">
-                                <img src="assets/Music.png" alt="Music App Preview" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/121212/1DB954?text=Music+App'">
-                            </div>
-
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-14 h-14 bg-[#121212] flex items-center justify-center rounded-full text-spotify-green shadow-lg group-hover:scale-110 transition-transform duration-500 shrink-0">
-                                     <i data-lucide="music" size="28"></i>
-                                </div>
-                                <span class="text-xs font-bold text-spotify-text bg-[#121212] px-3 py-1 rounded-full border border-white/5 group-hover:border-spotify-green/30 transition-colors">2024</span>
-                            </div>
-                            
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-spotify-green transition-colors">Music App</h3>
-                            <p class="text-sm text-spotify-text mb-6 line-clamp-2">Mobile UI Mockup featuring a music experience where discovery adapts to the listener’s mood and emotions.</p>
-                            
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                                <span class="text-xs font-bold text-spotify-text uppercase tracking-wider group-hover:text-white transition-colors">UI Concept</span>
-                                <div class="w-8 h-8 rounded-full bg-spotify-green flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                    <i data-lucide="arrow-up-right" size="18"></i>
-                                </div>
+                            <h3 class="text-xl md:text-2xl font-black text-white mb-2 tracking-tight group-hover:text-purple-400 transition-colors drop-shadow-md">Spiritual Podcasts</h3>
+                            <p class="text-sm text-[#e0e0e0] line-clamp-1">Exploring how India’s youth engage with digital spirituality.</p>
+                            <div class="flex items-center gap-4 mt-4 text-xs font-medium text-[#b3b3b3]">
+                                <span class="flex items-center gap-1.5"><i data-lucide="clock" size="14"></i> 3 months</span>
                             </div>
                         </div>
                     </div>
+
+                    <!-- SMALL TILE: Leap -->
+                    <div onclick="openProject('leap')" class="bento-tile group relative overflow-hidden rounded-2xl bg-[#181818] border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer flex flex-col justify-end p-6 md:col-span-1 md:row-span-1 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(168,85,247,0.15)] transform-gpu" style="transition-property: transform, opacity, box-shadow, border-color;" data-category="ux">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent z-10 opacity-80"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="assets/journey_Map.png" alt="Leap" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 z-0" onerror="this.src='https://placehold.co/400x400/121212/A855F7?text=LEAP'">
+                        
+                        <div class="relative z-20 mt-auto">
+                            <span class="inline-block mb-3 px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 backdrop-blur-md shadow-sm">UX Research</span>
+                            <h3 class="text-lg font-black text-white mb-2 tracking-tight group-hover:text-purple-400 transition-colors drop-shadow-md">LEAP</h3>
+                            <p class="text-xs text-[#b3b3b3] line-clamp-2">Optimizing counseling demo journey.</p>
+                        </div>
+                    </div>
+
+                    <!-- LARGE TILE: Paw Rescue -->
+                    <div onclick="openProject('pawrescue')" class="bento-tile group relative overflow-hidden rounded-2xl bg-[#181818]/60 backdrop-blur-md border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer flex flex-col justify-end p-6 md:col-span-2 md:row-span-2 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(59,130,246,0.15)] transform-gpu" style="transition-property: transform, opacity, box-shadow, border-color;" data-category="design">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-bl from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="assets/PW HEAD.png" alt="Paw Rescue" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 z-0" onerror="this.src='https://placehold.co/800x800/121212/3B82F6?text=Paw+Rescue'">
+                        
+                        <div class="relative z-20 mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 backdrop-blur-md shadow-sm">Design</span>
+                                <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                    <i data-lucide="arrow-up-right" size="16" class="text-white"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors drop-shadow-md">Paw Rescue</h3>
+                            <p class="text-sm text-[#e0e0e0] line-clamp-2 max-w-md">AI-Powered Stray Animal Rescue & Adoption Platform.</p>
+                            <div class="flex items-center gap-4 mt-5 text-xs font-medium text-[#b3b3b3]">
+                                <span class="flex items-center gap-1.5"><i data-lucide="clock" size="14"></i> 2 months</span>
+                                <span class="flex items-center gap-1.5"><i data-lucide="user" size="14"></i> Frontend Dev</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LARGE TILE: Impact Hub (NEW) -->
+                    <div onclick="openProject('impacthub')" class="bento-tile group relative overflow-hidden rounded-2xl bg-[#181818]/60 backdrop-blur-md border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer flex flex-col justify-end p-6 md:col-span-2 md:row-span-2 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(29,185,84,0.15)] transform-gpu" style="transition-property: transform, opacity, box-shadow, border-color;" data-category="product">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="assets/ImpactHub.png" alt="Impact Hub" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 z-0" onerror="this.src='https://placehold.co/800x800/121212/1DB954?text=Impact+Hub'">
+                        
+                        <div class="relative z-20 mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold rounded-full bg-green-500/20 text-green-400 border border-green-500/30 backdrop-blur-md shadow-sm">Product</span>
+                                <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                    <i data-lucide="arrow-up-right" size="16" class="text-white"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2 tracking-tight group-hover:text-green-400 transition-colors drop-shadow-md">Impact Hub</h3>
+                            <p class="text-sm text-[#e0e0e0] line-clamp-2 max-w-md">A centralized platform for tracking, measuring, and scaling social impact initiatives.</p>
+                            <div class="flex items-center gap-4 mt-5 text-xs font-medium text-[#b3b3b3]">
+                                <span class="flex items-center gap-1.5"><i data-lucide="clock" size="14"></i> 4 months</span>
+                                <span class="flex items-center gap-1.5"><i data-lucide="user" size="14"></i> Product Manager</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SMALL TILE: Music App -->
+                    <div onclick="openProject('musicapp')" class="bento-tile group relative overflow-hidden rounded-2xl bg-[#181818] border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer flex flex-col justify-end p-6 md:col-span-1 md:row-span-1 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(59,130,246,0.15)] transform-gpu" style="transition-property: transform, opacity, box-shadow, border-color;" data-category="design">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent z-10 opacity-80"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="assets/Music.png" alt="Music App" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 z-0" onerror="this.src='https://placehold.co/400x400/121212/3B82F6?text=Music+App'">
+                        
+                        <div class="relative z-20 mt-auto">
+                            <span class="inline-block mb-3 px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 backdrop-blur-md shadow-sm">Design</span>
+                            <h3 class="text-lg font-black text-white mb-2 tracking-tight group-hover:text-blue-400 transition-colors drop-shadow-md">Music App</h3>
+                            <p class="text-xs text-[#b3b3b3] line-clamp-2">Mood-driven UI redesign concept.</p>
+                        </div>
+                    </div>
+
+                    <!-- MEDIUM TILE: Cherrywork -->
+                    <div onclick="openProject('cherrywork')" class="bento-tile group relative overflow-hidden rounded-2xl bg-[#181818] border border-white/5 hover:border-white/10 transition-all duration-500 cursor-pointer flex flex-col justify-end p-6 md:col-span-2 md:row-span-1 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(29,185,84,0.15)] transform-gpu" style="transition-property: transform, opacity, box-shadow, border-color;" data-category="product">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-bl from-green-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="assets/CherryWork.png" alt="Cherrywork" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 z-0" onerror="this.src='https://placehold.co/800x400/121212/1DB954?text=Cherrywork'">
+                        
+                        <div class="relative z-20 mt-auto">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold rounded-full bg-green-500/20 text-green-400 border border-green-500/30 backdrop-blur-md shadow-sm">Product</span>
+                                <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                    <i data-lucide="arrow-up-right" size="16" class="text-white"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-black text-white mb-2 tracking-tight group-hover:text-green-400 transition-colors drop-shadow-md">Cherrywork</h3>
+                            <p class="text-sm text-[#e0e0e0] line-clamp-1">SaaS Product Marketing strategy and GTM execution.</p>
+                            <div class="flex items-center gap-4 mt-4 text-xs font-medium text-[#b3b3b3]">
+                                <span class="flex items-center gap-1.5"><i data-lucide="clock" size="14"></i> 1 month</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
@@ -719,7 +703,7 @@
                     <div class="flex flex-col gap-2 max-w-[85%]">
                         <div class="bg-[#282828] border border-white/5 text-white text-sm rounded-2xl rounded-tl-sm p-3 leading-relaxed shadow-sm">
                           Hi! I'm Bublish <br>
-                            How may I help you explore Richa’s portfolio today?&nbsp;
+                            How may I help you explore Richa’s portfolio today? 
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-1">
                             <button onclick="handleQuickReply('Show Projects')" class="text-xs px-3 py-1.5 bg-spotify-green/10 text-spotify-green hover:bg-spotify-green hover:text-black border border-spotify-green/30 rounded-full transition-all duration-300">Show Projects</button>
@@ -881,6 +865,18 @@
             </div>
 
         </div>
+        
+        <!-- UNDER BUILD OVERLAY -->
+        <div id="under-build-overlay" class="hidden fixed inset-0 z-[105] bg-[#121212]/85 backdrop-blur-md flex-col items-center justify-center text-center p-6">
+            <div class="w-24 h-24 bg-[#181818] rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(29,185,84,0.2)] border border-spotify-green/30 animate-float">
+                <i data-lucide="wrench" class="text-spotify-green animate-pulse" size="40"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Work in <span class="text-spotify-green">Progress</span></h2>
+            <p class="text-spotify-text text-lg max-w-md mx-auto">This case study is currently under build. Check back soon for the full detailed narrative!</p>
+            <button onclick="closeProject()" class="mt-8 px-8 py-3 bg-white hover:bg-gray-200 text-black font-bold text-sm rounded-full hover:scale-105 transition-all shadow-lg">
+                Return to Portfolio
+            </button>
+        </div>
     </div>
 
     <!-- MAIN SCRIPT -->
@@ -972,12 +968,6 @@
 
         lucide.createIcons();
         
-        // --- 4. MARQUEE CLONE LOGIC ---
-        document.querySelectorAll('.scrolling-track').forEach(track => {
-            const items = Array.from(track.children);
-            items.forEach(item => track.appendChild(item.cloneNode(true)));
-        });
-
         const projectsData = {
             "healbridge": {
                 category: "Academic Project",
@@ -1099,9 +1089,116 @@
                 subtitle: "User Research on Digital Spiritual Engagement",
                 externalLink: "https://docs.google.com/presentation/d/1YwNltHxre5wvdRhZIU-aRDKHcwwbMEgO/edit?usp=sharing&ouid=101721750729070349032&rtpof=true&sd=true",
                 tags: ["Qualitative Research", "User Interviews", "Digital Ethnography", "Thematic Analysis"],
-                overview: "An in-depth qualitative UX research study uncovering how India's youth navigate, consume, and build trust within the booming digital spiritual podcast ecosystem.",
-                challenge: "Despite the rapid growth of digital spiritual content, there is limited research on how Indian youth interpret, trust, and integrate spiritual podcasts into their everyday lives.",
-                solution: "Conducted a phenomenological study with 20 in-depth interviews and digital ethnography of YouTube spiritual communities. Analyzed emotional engagement patterns, algorithm driven discovery, authenticity cues, and skeptical consumption behaviors. The findings revealed several key themes one of which is youth engage as 'critical spiritual listeners' seeking emotional grounding while actively evaluating credibility.",
+                hideOverviewHeading: true,
+                challengeHeading: "Key Pain Points",
+                challengeNavText: "Pain Points",
+                hideSolutionHeading: true,
+                solutionNavText: "Insights & Impact",
+                overview: `<h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">The Problem</h4>
+                <p class="text-base text-white/90 leading-relaxed mb-8">Modern Indian youth face unprecedented levels of "technostress," career precarity, and burnout. While seeking emotional grounding, they find traditional religious spaces (temples, dogmatic rituals) to be rigid, inaccessible, and disconnected from their daily struggles. They are increasingly turning to digital spiritual content (like podcasts) for mental well-being. However, audio platforms and content creators lack a clear understanding of how these modern, skeptical users evaluate trust, authenticity, and relevance in a crowded digital space.</p>
+                
+                <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">Target Users</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 hover:border-spotify-green/50 transition-colors shadow-lg">
+                        <h5 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="users" size="18" class="text-spotify-green"></i> Demographics</h5>
+                        <p class="text-sm text-[#b3b3b3]">Urban Young Adults (18–45 years old), Millennials, and Gen Z navigating life transitions (first jobs, moving cities, academic pressure).</p>
+                    </div>
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 hover:border-spotify-green/50 transition-colors shadow-lg">
+                        <h5 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="brain" size="18" class="text-spotify-green"></i> Mindset</h5>
+                        <p class="text-sm text-[#b3b3b3]">Tech-savvy, stressed, and often secular. Seeking emotional stability and mental wellness rather than strict religious doctrines.</p>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">Research Goal & Methodology</h4>
+                <p class="text-base text-white/90 leading-relaxed mb-6">To understand the underlying motivations behind how and why young Indians consume spiritual podcasts, and to map how they build (or lose) trust in digital spiritual creators.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-[#181818] border-l-4 border-l-spotify-green rounded-xl p-5 shadow-lg">
+                        <h6 class="text-white font-bold mb-2">In-Depth Interviews (N=20)</h6>
+                        <p class="text-sm text-[#b3b3b3]">Conducted 30–60 minute semi-structured interviews with a diverse mix of active listeners, casual consumers, and heavy skeptics.</p>
+                    </div>
+                    <div class="bg-[#181818] border-l-4 border-l-blue-500 rounded-xl p-5 shadow-lg">
+                        <h6 class="text-white font-bold mb-2">Digital Ethnography</h6>
+                        <p class="text-sm text-[#b3b3b3]">Non-participant observation of YouTube comment sections to observe how communities naturally interact, share vulnerabilities, and validate content.</p>
+                    </div>
+                </div>`,
+                journey: `<h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">User Behavior Model</h4>
+                <p class="text-base text-white/90 leading-relaxed mb-6">Through user interviews, I mapped the modern spiritual consumption journey. It is entirely non-linear and relies heavily on passive social media nudges.</p>
+                
+                <div class="flex flex-col gap-3">
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 flex items-start gap-4 hover:border-spotify-green/30 transition-colors shadow-lg">
+                        <div class="w-10 h-10 rounded-full bg-spotify-green/20 text-spotify-green flex items-center justify-center shrink-0 mt-0.5"><i data-lucide="monitor-play" size="18"></i></div>
+                        <div><h5 class="text-white font-bold mb-1">1. Exposure & Interest (Trigger)</h5><p class="text-sm text-[#b3b3b3]">User's interest is sparked through various channels—passively via social media feeds and TV broadcasts, or actively driven by personal self-interest and the need to address specific pain points.</p></div>
+                    </div>
+                    <div class="flex justify-center -my-1 text-white/20"><i data-lucide="arrow-down" size="20"></i></div>
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 flex items-start gap-4 hover:border-blue-500/30 transition-colors shadow-lg">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5"><i data-lucide="mouse-pointer-click" size="18"></i></div>
+                        <div><h5 class="text-white font-bold mb-1">2. Discovery (Hook)</h5><p class="text-sm text-[#b3b3b3]">Feeling understood, the user clicks through to the creator’s profile or searches for the long-form podcast episode.</p></div>
+                    </div>
+                    <div class="flex justify-center -my-1 text-white/20"><i data-lucide="arrow-down" size="20"></i></div>
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 flex items-start gap-4 hover:border-purple-500/30 transition-colors shadow-lg">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 mt-0.5"><i data-lucide="headphones" size="18"></i></div>
+                        <div><h5 class="text-white font-bold mb-1">3. Engagement (Evaluation)</h5><p class="text-sm text-[#b3b3b3]">The user listens, actively judging the host for authenticity, transparency, and lack of commercial bias.</p></div>
+                    </div>
+                    <div class="flex justify-center -my-1 text-white/20"><i data-lucide="arrow-down" size="20"></i></div>
+                    <div class="bg-[#181818] border border-white/5 rounded-xl p-5 flex items-start gap-4 hover:border-yellow-500/30 transition-colors shadow-lg">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center shrink-0 mt-0.5"><i data-lucide="repeat" size="18"></i></div>
+                        <div><h5 class="text-white font-bold mb-1">4. Habit (Integration)</h5><p class="text-sm text-[#b3b3b3]">The podcast is added to a daily routine (e.g., the morning commute) serving as a mental "anchor."</p></div>
+                    </div>
+                    <div class="flex justify-center -my-1 text-white/20"><i data-lucide="arrow-down" size="20"></i></div>
+                    <div class="bg-[#181818] border border-red-500/30 rounded-xl p-5 flex items-start gap-4 relative overflow-hidden shadow-lg hover:border-red-500/60 transition-colors">
+                        <div class="absolute right-0 top-0 w-2 h-full bg-red-500/50"></div>
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center shrink-0 mt-0.5"><i data-lucide="scale" size="18"></i></div>
+                        <div><h5 class="text-white font-bold mb-1">5. Evaluation (Retention/Churn)</h5><p class="text-sm text-[#b3b3b3]">The user continuously scrutinizes the content. If it remains grounded, they stay. If it becomes preachy or pushes paid courses aggressively, they churn.</p></div>
+                    </div>
+                </div>`,
+                challenge: `<div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mt-2">
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl hover:-translate-y-1 transition-transform">
+                        <h5 class="text-white font-bold mb-2">Cognitive Overload</h5>
+                        <p class="text-sm text-white/80 leading-relaxed">Users are alienated by heavy metaphysical jargon. If content doesn't translate to easy, everyday problems, they drop off.</p>
+                    </div>
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl hover:-translate-y-1 transition-transform">
+                        <h5 class="text-white font-bold mb-2">"Fake Guru" Fatigue</h5>
+                        <p class="text-sm text-white/80 leading-relaxed">High distrust toward creators pushing unrealistic lifestyles or aggressive monetization (e.g., expensive spiritual retreats).</p>
+                    </div>
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl hover:-translate-y-1 transition-transform">
+                        <h5 class="text-white font-bold mb-2">Decision Paralysis</h5>
+                        <p class="text-sm text-white/80 leading-relaxed">With endless content available, users struggle to find credible and authentic sources.</p>
+                    </div>
+                </div>`,
+                solution: `<div class="bg-[#1DB954]/5 border border-[#1DB954]/20 rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden shadow-lg mb-10 mt-2">
+                    <h6 class="text-6xl text-spotify-green font-serif font-black absolute top-4 left-4 opacity-20">"</h6>
+                    <p class="text-lg md:text-xl text-white italic relative z-10 text-center font-medium px-6 leading-relaxed">I don't want someone to preach to me. I just want to hear how they survived a bad day at work and found their peace.</p>
+                    <p class="text-spotify-green text-sm font-bold text-center mt-4 tracking-wider uppercase">— Interview Participant</p>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">5 Key Insights</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-spotify-green/10 border border-spotify-green/30 rounded-xl p-5 hover:bg-spotify-green/20 transition-colors shadow-lg">
+                        <h5 class="text-spotify-green font-bold text-sm mb-3">The Digital Anchor</h5>
+                        <p class="text-sm text-[#e0e0e0]">Users don't listen to fulfill a religious duty; they use podcasts as on-demand coping mechanisms for stress and emotional regulation.</p>
+                    </div>
+                    <div class="bg-blue-500/10 border border-blue-500/30 rounded-xl p-5 hover:bg-blue-500/20 transition-colors shadow-lg">
+                        <h5 class="text-blue-400 font-bold text-sm mb-3">Incidental Discovery</h5>
+                        <p class="text-sm text-[#e0e0e0]">Discovery is passive. Users are hooked by encountering relevant short-form clips precisely when feeling emotionally vulnerable.</p>
+                    </div>
+                    <div class="bg-purple-500/10 border border-purple-500/30 rounded-xl p-5 hover:bg-purple-500/20 transition-colors shadow-lg">
+                        <h5 class="text-purple-400 font-bold text-sm mb-3">Authenticity &gt; Authority</h5>
+                        <p class="text-sm text-[#e0e0e0]">Listeners immediately reject traditional preaching, preferring creators who share personal failures and relatable lived experiences.</p>
+                    </div>
+                    <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-5 hover:bg-yellow-500/20 transition-colors shadow-lg">
+                        <h5 class="text-yellow-400 font-bold text-sm mb-3">Habitual Integration</h5>
+                        <p class="text-sm text-[#e0e0e0]">Spirituality is consumed on the go—during commutes or chores—turning reflection into a frictionless daily habit (Micro-dosing).</p>
+                    </div>
+                    <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5 hover:bg-red-500/20 transition-colors shadow-lg md:col-span-2 lg:col-span-1">
+                        <h5 class="text-red-400 font-bold text-sm mb-3">The Skeptical Seeker</h5>
+                        <p class="text-sm text-[#e0e0e0]">Today's youth actively cross-check claims and instantly abandon podcasts that feel overly commercialized or push "absolute truths."</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-spotify-green/20 to-transparent border-l-4 border-spotify-green p-6 rounded-r-xl shadow-lg mt-2">
+                    <h5 class="text-lg font-bold text-white mb-2">The Impact</h5>
+                    <p class="text-sm text-white/90 leading-relaxed">This research shifted the product and content strategy from a traditional "broadcasting" model to a "companion-based" model. By deeply understanding the "Skeptical Seeker," platforms can build sustainable, high-retention communities rooted in psychological safety, transparency, and accessible mental well-being.</p>
+                </div>`,
                 features: ["Semi-Structured Interviews (N=20)", "Digital Ethnography (YouTube Comment Analysis)", "Thematic Coding & Insight Synthesis", "Journey Mapping of Digital Spiritual Engagement"],
                 role: "Principal Investigator & UX Researcher",
                 tools: "MS Word, Audio Transcription, Taugette, Zotero"
@@ -1134,6 +1231,21 @@
                 features: [ "Real-time lyrics feature", "Immersive Now Playing", "Social Sharing", "Mood-based Playlists"],
                 role: "UI Designer",
                 tools: "Figma"
+            },
+            "impacthub": {
+                category: "Product Build",
+                title: "Impact Hub",
+                subtitle: "Centralized Social Impact Platform",
+                image: "assets/ImpactHub.png", 
+                externalLink: "#",
+                isUnderBuild: true,
+                tags: ["Product Management", "0 to 1 Build", "Analytics"],
+                overview: "Social impact initiatives often suffer from fragmented data, making it difficult for organizations to measure their true impact and report effectively to stakeholders. This lack of transparency limits scalability and funding opportunities.",
+                challenge: "The challenge was to design a unified dashboard that could seamlessly aggregate data from multiple field sources while providing an intuitive, high-level overview for executives and donors without overwhelming them with raw metrics.",
+                solution: "Impact Hub is a 0-to-1 product build that introduced automated data pipelines and customizable visualization dashboards. The platform enables field workers to easily input daily metrics via a simplified mobile view, while the desktop dashboard automatically rolls up this data into actionable insights, ESG reports, and predictive trend lines for stakeholders. \n\nThe resulting platform standardized reporting across 5+ partner NGOs, drastically reducing manual data-entry errors and saving countless hours during funding cycles.",
+                features: ["Automated Impact Reporting", "Customizable Dashboards", "Mobile-first Data Entry", "Stakeholder Sharing Portals"],
+                role: "Product Manager",
+                tools: "Jira, Amplitude, Figma, Notion"
             },
             "leap": {
                 category: "UX Research",
@@ -1327,6 +1439,45 @@
             }
         };
 
+        // --- BENTO GRID FILTERING LOGIC ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const bentoTiles = document.querySelectorAll('.bento-tile');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Handle button active state
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-white', 'text-black');
+                    b.classList.add('bg-[#181818]', 'text-[#b3b3b3]', 'border-white/10');
+                });
+                btn.classList.remove('bg-[#181818]', 'text-[#b3b3b3]', 'border-white/10');
+                btn.classList.add('bg-white', 'text-black');
+
+                const category = btn.getAttribute('data-filter');
+
+                // Animate and filter tiles
+                bentoTiles.forEach(tile => {
+                    // Step 1: Smoothly fade out all tiles
+                    tile.style.transform = 'scale(0.95)';
+                    tile.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        // Step 2: Hide non-matching, show matching
+                        if (category === 'all' || tile.getAttribute('data-category') === category) {
+                            tile.style.display = 'flex'; 
+                            // Small delay to allow display:flex to register before fading back in
+                            setTimeout(() => {
+                                tile.style.transform = 'scale(1)';
+                                tile.style.opacity = '1';
+                            }, 50);
+                        } else {
+                            tile.style.display = 'none';
+                        }
+                    }, 400); // Wait for fade out duration
+                });
+            });
+        });
+
         // --- OVERLAY DASHBOARD SCROLL SPY LOGIC ---
         const overlayScrollContainer = document.getElementById('project-overlay');
         const overlayNavItems = document.querySelectorAll('.project-overlay-nav-item');
@@ -1484,6 +1635,16 @@
                 li.innerHTML = `<span class="text-spotify-green">●</span> ${feature}`;
                 featuresContainer.appendChild(li);
             });
+
+            // --- UNDER BUILD OVERLAY LOGIC ---
+            const underBuildOverlay = document.getElementById('under-build-overlay');
+            if (data.isUnderBuild) {
+                underBuildOverlay.classList.remove('hidden');
+                underBuildOverlay.classList.add('flex');
+            } else {
+                underBuildOverlay.classList.add('hidden');
+                underBuildOverlay.classList.remove('flex');
+            }
 
             // --- EXPLORE MORE PROJECTS LOGIC ---
             const exploreContainer = document.getElementById('modal-explore-cards');
