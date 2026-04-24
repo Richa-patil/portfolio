@@ -682,6 +682,7 @@
 
                 <div class="relative w-full reveal group">
                     <div class="absolute -top-12 left-6 md:left-12 z-20 font-signature text-6xl md:text-7xl text-white transform -rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-default drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] opacity-90 group-hover:opacity-100 group-hover:text-spotify-green">
+                        Richa Patil
                     </div>
 
                     <div class="relative z-10 bg-[#181818] border border-white/5 p-8 pt-10 md:p-10 md:pt-12 rounded-2xl w-full flex flex-col md:flex-row items-center justify-between shadow-2xl group-hover:border-spotify-green/30 transition-colors duration-500 overflow-hidden">
@@ -752,8 +753,8 @@
             
             <div class="p-3 border-t border-white/5 bg-[#121212]">
                 <form id="chat-form" class="flex gap-2 relative">
-                    <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 bg-[#282828] text-white text-sm rounded-full pl-4 pr-12 py-2.5 focus:outline-none focus:ring-1 focus:ring-spotify-green placeholder:text-spotify-text transition-all">
-                    <button type="submit" class="absolute right-1 top-1 w-8 h-8 rounded-full bg-spotify-green hover:bg-[#1ed760] flex items-center justify-center text-black transition-transform active:scale-95 flex-shrink-0">
+                    <input type="text" id="chat-input" aria-label="Chat input" placeholder="Type a message..." class="flex-1 bg-[#282828] text-white text-sm rounded-full pl-4 pr-12 py-2.5 focus:outline-none focus:ring-1 focus:ring-spotify-green placeholder:text-spotify-text transition-all">
+                    <button type="submit" aria-label="Send message" class="absolute right-1 top-1 w-8 h-8 rounded-full bg-spotify-green hover:bg-[#1ed760] flex items-center justify-center text-black transition-transform active:scale-95 flex-shrink-0">
                         <i data-lucide="send" size="14"></i>
                     </button>
                 </form>
@@ -1010,9 +1011,287 @@
                 image: "assets/Screenshot 2025-11-27 181150.png", 
                 externalLink: "https://drive.google.com/drive/folders/1pD7mGdC35SAkD65jhikvicAkb7_QBWvS?usp=sharing",
                 tags: ["Product Strategy", "User Research", "MVP Roadmap"],
-                overview: "The transition from hospital to home is one of the most vulnerable points in the healthcare continuum. Patients and families often leave the hospital confused about discharge instructions, unsure about medications, and without reliable access to trusted home-based services.",
-                challenge: `This sudden shift from supervised care to self-management frequently leads to anxiety, complications, and avoidable readmissions. For hospitals, this gap results in high rates of preventable readmissions costing the Indian healthcare system over ₹15,000 crores annually. The core issue? A systemic failure in care continuity where fragmentation creates clinical, financial, and emotional costs.`,
-                solution: `HealBridge is an integrated post-discharge care platform designed to ensure seamless continuity of care from hospital to home. It combines clinical oversight with marketplace convenience, creating a unified digital ecosystem that connects hospitals, patients, families, and verified service providers.\n\nThe platform integrates directly with hospital workflows to enable structured discharge planning, outcome monitoring, and readmission risk tracking. Patients receive personalized recovery plans, medication reminders, vital tracking, and real-time support through an intuitive recovery dashboard. A secure digital reports vault ensures centralized access to medical records, while an SOS escalation feature provides hospital-connected emergency support.\n\nOn the provider side, HealBridge offers a curated service marketplace with verified nurses, physiotherapists, and equipment providers, supported by integrated scheduling and payments. Hospitals gain access to a monitoring dashboard for proactive intervention and outcome analytics.\n\nBy bridging clinical care and home recovery within a single digital ecosystem, HealBridge reduces readmissions, improves patient confidence, and strengthens care coordination across stakeholders.`,
+                hideOverviewHeading: true,
+                challengeHeading: "Design Decisions",
+                challengeNavText: "Design Decisions",
+                hideSolutionHeading: true,
+                solutionNavText: "Features & Outcomes",
+                overview: `<h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">Overview</h4>
+                <p class="text-base text-white/90 leading-relaxed mb-6">A B2B2C healthcare platform connecting hospitals, patients, caregivers, and service providers to reduce readmissions and improve recovery after hospital discharge. HealBridge was designed to reduce preventable hospital readmissions by improving the transition from hospital to home and providing continuous post-discharge support.</p>
+                
+                <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">The Problem</h4>
+                <p class="text-base text-white/90 leading-relaxed mb-6">Patients often leave hospitals confused about medication, recovery steps, and trusted support services. Hospitals struggle with preventable readmissions, poor satisfaction scores, and manual follow-up inefficiencies. The fragmented recovery journey, lack of trusted home-care services, medication mismanagement, and poor adherence lead to high readmission rates costing ₹15,000+ crores annually.</p>
+                
+                <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">My Role</h4>
+                <p class="text-base text-white/90 leading-relaxed mb-4">I worked on identifying user pain points, mapping stakeholder journeys, creating user workflows, defining product requirements, and designing platform architecture for patient recovery and hospital monitoring.</p>
+                <div class="flex flex-wrap gap-2 mb-2">
+                    <span class="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-[#b3b3b3] bg-[#282828] rounded-full border border-white/5">User Research</span>
+                    <span class="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-[#b3b3b3] bg-[#282828] rounded-full border border-white/5">Persona Building</span>
+                    <span class="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-[#b3b3b3] bg-[#282828] rounded-full border border-white/5">Workflow Mapping</span>
+                    <span class="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-[#b3b3b3] bg-[#282828] rounded-full border border-white/5">Dashboard Planning</span>
+                    <span class="px-3 py-1 text-[10px] font-bold tracking-wider uppercase text-[#b3b3b3] bg-[#282828] rounded-full border border-white/5">Feature Prioritization</span>
+                </div>`,
+                journey: `<h5 class="font-bold text-white mb-2 text-xl border-b border-white/10 pb-2">Key Stakeholder Personas</h5>
+                
+                <div class="space-y-2 mb-10">
+                    <!-- Jeyaram (Patient) -->
+                    <div class="bg-[#181818] border border-white/5 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-lg hover:border-spotify-green/30 transition-colors">
+                        <div class="md:w-1/4 bg-[#202020] p-4 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-white/5">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center mb-2">
+                                <i data-lucide="user" size="20"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-white mb-1">Jeyaram</h5>
+                            <span class="text-[10px] font-bold text-spotify-green uppercase tracking-widest mb-2">The Patient</span>
+                            <p class="text-xs text-[#b3b3b3] italic leading-relaxed">"Recently discharged from hospital and anxious about recovery."</p>
+                        </div>
+                        <div class="md:w-3/4 p-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Goals</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Recover safely at home</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Follow medication and care plan correctly</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Get quick help during emergencies</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Pain Points</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Confusion about discharge instructions</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Difficulty tracking medicines & appointments</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Fear of complications after discharge</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Needs</h6>
+                                <p class="text-xs text-[#b3b3b3] leading-relaxed bg-[#282828] p-2.5 rounded-lg border border-white/5">Simple instructions, reminders, and instant support access</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saiju (Caregiver) -->
+                    <div class="bg-[#181818] border border-white/5 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-lg hover:border-spotify-green/30 transition-colors">
+                        <div class="md:w-1/4 bg-[#202020] p-4 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-white/5">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center mb-2">
+                                <i data-lucide="users" size="20"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-white mb-1">Saiju</h5>
+                            <span class="text-[10px] font-bold text-spotify-green uppercase tracking-widest mb-2">The Caregiver</span>
+                            <p class="text-xs text-[#b3b3b3] italic leading-relaxed">"Jeyaram’s son, a busy working professional managing family responsibilities."</p>
+                        </div>
+                        <div class="md:w-3/4 p-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Goals</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Ensure his father recovers smoothly</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Monitor progress remotely</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Find trusted healthcare services quickly</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Pain Points</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Limited time for regular monitoring</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Difficulty finding verified service providers</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Lack of visibility into recovery updates</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Needs</h6>
+                                <p class="text-xs text-[#b3b3b3] leading-relaxed bg-[#282828] p-2.5 rounded-lg border border-white/5">Peace of mind, remote monitoring, and trusted service booking</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dr. Saran (Hospital Admin) -->
+                    <div class="bg-[#181818] border border-white/5 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-lg hover:border-spotify-green/30 transition-colors">
+                        <div class="md:w-1/4 bg-[#202020] p-4 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-white/5">
+                            <div class="w-10 h-10 rounded-full bg-red-500/10 text-red-400 flex items-center justify-center mb-2">
+                                <i data-lucide="activity" size="20"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-white mb-1">Dr. Saran</h5>
+                            <span class="text-[10px] font-bold text-spotify-green uppercase tracking-widest mb-2">Hospital Admin</span>
+                            <p class="text-xs text-[#b3b3b3] italic leading-relaxed">"Chief Medical Officer focused on reducing readmissions and improving outcomes."</p>
+                        </div>
+                        <div class="md:w-3/4 p-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Goals</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Reduce preventable readmissions</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Improve patient satisfaction scores</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Streamline discharge operations</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Pain Points</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> High manual follow-up workload</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Poor post-discharge visibility</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Revenue loss due to readmission penalties</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Needs</h6>
+                                <p class="text-xs text-[#b3b3b3] leading-relaxed bg-[#282828] p-2.5 rounded-lg border border-white/5">Analytics dashboard, patient monitoring, and proactive alerts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Anu (Care Coordinator) -->
+                    <div class="bg-[#181818] border border-white/5 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-lg hover:border-spotify-green/30 transition-colors">
+                        <div class="md:w-1/4 bg-[#202020] p-4 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-white/5">
+                            <div class="w-10 h-10 rounded-full bg-yellow-500/10 text-yellow-400 flex items-center justify-center mb-2">
+                                <i data-lucide="clipboard-list" size="20"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-white mb-1">Anu</h5>
+                            <span class="text-[10px] font-bold text-spotify-green uppercase tracking-widest mb-2">Care Coordinator</span>
+                            <p class="text-xs text-[#b3b3b3] italic leading-relaxed">"Hospital staff responsible for monitoring discharged patients."</p>
+                        </div>
+                        <div class="md:w-3/4 p-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Goals</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Track all patients efficiently</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Identify high-risk cases quickly</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Respond faster to patient concerns</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Pain Points</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Managing multiple patients manually</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Delayed identification of critical cases</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Lack of centralized monitoring tools</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Needs</h6>
+                                <p class="text-xs text-[#b3b3b3] leading-relaxed bg-[#282828] p-2.5 rounded-lg border border-white/5">Single dashboard, risk alerts, and streamlined communication</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mr. Kumar (Service Provider) -->
+                    <div class="bg-[#181818] border border-white/5 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-lg hover:border-spotify-green/30 transition-colors">
+                        <div class="md:w-1/4 bg-[#202020] p-4 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-white/5">
+                            <div class="w-10 h-10 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center mb-2">
+                                <i data-lucide="briefcase" size="20"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-white mb-1">Mr. Kumar</h5>
+                            <span class="text-[10px] font-bold text-spotify-green uppercase tracking-widest mb-2">Service Provider</span>
+                            <p class="text-xs text-[#b3b3b3] italic leading-relaxed">"Owner of a physiotherapy and caretaker service."</p>
+                        </div>
+                        <div class="md:w-3/4 p-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Goals</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Get qualified leads</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Increase bookings</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-spotify-green mt-0.5">•</span> Build trust via hospital partnerships</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Pain Points</h6>
+                                <ul class="text-xs text-[#b3b3b3] space-y-1.5">
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Difficulty finding genuine clients</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Manual scheduling and payment issues</li>
+                                    <li class="flex items-start gap-1.5"><span class="text-red-400 mt-0.5">•</span> Lack of healthcare ecosystem integration</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="text-white text-[11px] font-bold mb-2 uppercase tracking-wider">Needs</h6>
+                                <p class="text-xs text-[#b3b3b3] leading-relaxed bg-[#282828] p-2.5 rounded-lg border border-white/5">Verified marketplace access and easy scheduling/payment system</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-3 border-b border-white/10 pb-2">End-to-End User Flow</h4>
+                <div class="w-full bg-white rounded-xl border border-white/10 overflow-hidden shadow-lg p-4 flex items-center justify-center mb-6">
+                    <img src="assets/Screenshot 2026-04-24 164409.png" alt="HealBridge Post-Discharge Patient Journey" class="w-full max-h-[600px] object-contain rounded-md" onerror="this.src='https://placehold.co/1000x600/f8f8f8/121212?text=User+Flow+Diagram'">
+                </div>
+                <div class="flex flex-wrap gap-3 items-center text-sm font-medium text-[#b3b3b3] bg-[#181818] p-5 rounded-xl border border-white/5 shadow-lg">
+                    <span class="text-white bg-[#282828] px-3 py-1.5 rounded-lg whitespace-nowrap">Hospital Discharge</span> 
+                    <i data-lucide="arrow-right" size="16" class="text-spotify-green shrink-0"></i>
+                    <span class="text-white bg-[#282828] px-3 py-1.5 rounded-lg whitespace-nowrap">Onboarding</span> 
+                    <i data-lucide="arrow-right" size="16" class="text-spotify-green shrink-0"></i>
+                    <span class="text-white bg-[#282828] px-3 py-1.5 rounded-lg whitespace-nowrap">Daily Engagement</span> 
+                    <i data-lucide="arrow-right" size="16" class="text-spotify-green shrink-0"></i>
+                    <span class="text-white bg-[#282828] px-3 py-1.5 rounded-lg whitespace-nowrap">Monitoring</span> 
+                    <i data-lucide="arrow-right" size="16" class="text-spotify-green shrink-0"></i>
+                    <span class="text-white bg-[#282828] px-3 py-1.5 rounded-lg whitespace-nowrap">Intervention</span> 
+                    <i data-lucide="arrow-right" size="16" class="text-spotify-green shrink-0"></i>
+                    <span class="text-white bg-spotify-green/20 text-spotify-green border border-spotify-green/30 px-3 py-1.5 rounded-lg whitespace-nowrap">Recovery Completion</span>
+                </div>`,
+                challenge: `<div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mt-2">
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl hover:-translate-y-1 transition-transform">
+                        <h5 class="text-white font-bold mb-2">Prominent SOS Button</h5>
+                        <p class="text-sm text-white/80 leading-relaxed"><strong>Why?</strong> Because emergency response required immediate access and minimal friction during high-stress situations.</p>
+                    </div>
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl hover:-translate-y-1 transition-transform">
+                        <h5 class="text-white font-bold mb-2">Visual Recovery Tracker</h5>
+                        <p class="text-sm text-white/80 leading-relaxed"><strong>Why?</strong> To motivate patients by gamifying progress, ultimately improving long-term adherence.</p>
+                    </div>
+                    <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl hover:-translate-y-1 transition-transform">
+                        <h5 class="text-white font-bold mb-2">Risk Color Coding</h5>
+                        <p class="text-sm text-white/80 leading-relaxed"><strong>Why?</strong> To help care coordinators prioritize interventions faster, enabling immediate action for high-risk patients.</p>
+                    </div>
+                </div>`,
+                solution: `<h4 class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">Core Features</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-[#181818] border-t-4 border-t-spotify-green rounded-xl p-5 shadow-lg">
+                        <h5 class="text-white font-bold mb-3">Patient Side</h5>
+                        <ul class="text-sm text-[#b3b3b3] space-y-2">
+                            <li>• Recovery Dashboard</li>
+                            <li>• Daily medication reminders</li>
+                            <li>• Symptom logging</li>
+                            <li>• Progress tracking</li>
+                            <li>• SOS emergency button</li>
+                            <li>• Digital reports vault</li>
+                        </ul>
+                    </div>
+                    <div class="bg-[#181818] border-t-4 border-t-blue-500 rounded-xl p-5 shadow-lg">
+                        <h5 class="text-white font-bold mb-3">Hospital Side</h5>
+                        <ul class="text-sm text-[#b3b3b3] space-y-2">
+                            <li>• Monitoring dashboard</li>
+                            <li>• Risk alerts</li>
+                            <li>• Readmission analytics</li>
+                            <li>• Care coordinator intervention</li>
+                        </ul>
+                    </div>
+                    <div class="bg-[#181818] border-t-4 border-t-purple-500 rounded-xl p-5 shadow-lg">
+                        <h5 class="text-white font-bold mb-3">Marketplace</h5>
+                        <ul class="text-sm text-[#b3b3b3] space-y-2">
+                            <li>• Verified physiotherapy</li>
+                            <li>• Nursing & Caretaker services</li>
+                            <li>• In-app booking & payments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">Target Outcomes & Metrics</h4>
+                <p class="text-sm text-[#b3b3b3] mb-4">Success was measured using activation rate, adherence rate, task completion, and readmission reduction against the following PRD targets:</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                    <div class="bg-spotify-green/10 border border-spotify-green/20 rounded-xl p-4 text-center shadow-lg">
+                        <span class="block text-2xl font-black text-spotify-green mb-1">15%</span>
+                        <span class="text-xs text-white/80 uppercase tracking-wider font-bold">Readmission Drop</span>
+                    </div>
+                    <div class="bg-spotify-green/10 border border-spotify-green/20 rounded-xl p-4 text-center shadow-lg">
+                        <span class="block text-2xl font-black text-spotify-green mb-1">70%</span>
+                        <span class="text-xs text-white/80 uppercase tracking-wider font-bold">Activation Rate</span>
+                    </div>
+                    <div class="bg-spotify-green/10 border border-spotify-green/20 rounded-xl p-4 text-center shadow-lg">
+                        <span class="block text-2xl font-black text-spotify-green mb-1">80</span>
+                        <span class="text-xs text-white/80 uppercase tracking-wider font-bold">NPS Score</span>
+                    </div>
+                    <div class="bg-spotify-green/10 border border-spotify-green/20 rounded-xl p-4 text-center shadow-lg">
+                        <span class="block text-2xl font-black text-spotify-green mb-1">50</span>
+                        <span class="text-xs text-white/80 uppercase tracking-wider font-bold">Hospital Partners</span>
+                    </div>
+                    <div class="bg-spotify-green/10 border border-spotify-green/20 rounded-xl p-4 text-center shadow-lg">
+                        <span class="block text-2xl font-black text-spotify-green mb-1">$2M</span>
+                        <span class="text-xs text-white/80 uppercase tracking-wider font-bold">ARR Target</span>
+                    </div>
+                </div>`,
                 features: [ "Patient Recovery Dashboard", "Digital Reports Vault", "Hospital Monitoring Dashboard", "SOS Assistance Button", "In-App Chat & Support","Service Booking Marketplace"],
                 role: "Product Strategist",
                 tools: "Miro, Figma, Google Forms, Canva, Loom"
@@ -1135,7 +1414,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     <div class="bg-[#181818] border border-white/5 rounded-xl p-5 hover:border-spotify-green/50 transition-colors shadow-lg">
                         <h5 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="users" size="18" class="text-spotify-green"></i> Demographics</h5>
-                        <p class="text-sm text-[#b3b3b3]">Urban Young Adults (18-45 years old), Millennials, and Gen Z navigating life transitions (first jobs, moving cities, academic pressure).</p>
+                        <p class="text-sm text-[#b3b3b3]">Urban Young Adults (18–45 years old), Millennials, and Gen Z navigating life transitions (first jobs, moving cities, academic pressure).</p>
                     </div>
                     <div class="bg-[#181818] border border-white/5 rounded-xl p-5 hover:border-spotify-green/50 transition-colors shadow-lg">
                         <h5 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="brain" size="18" class="text-spotify-green"></i> Mindset</h5>
@@ -1195,27 +1474,26 @@
                         <p class="text-sm text-white/80 leading-relaxed">High distrust toward creators pushing unrealistic lifestyles or aggressive monetization (e.g., expensive spiritual retreats).</p>
                     </div>
                     <div class="bg-[#121212]/50 border border-spotify-green/20 rounded-xl p-6 backdrop-blur-sm shadow-xl hover:-translate-y-1 transition-transform">
-                        <h5 class="text-white font-bold mb-2">Decision 
-                        Paralysis</h5>
+                        <h5 class="text-white font-bold mb-2">Decision Paralysis</h5>
                         <p class="text-sm text-white/80 leading-relaxed">With endless content available, users struggle to find credible and authentic sources.</p>
                     </div>
                 </div>`,
                 solution: `<div class="bg-[#1DB954]/5 border border-[#1DB954]/20 rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden shadow-lg mb-10 mt-2">
                     <h6 class="text-6xl text-spotify-green font-serif font-black absolute top-4 left-4 opacity-20">"</h6>
                     <p class="text-lg md:text-xl text-white italic relative z-10 text-center font-medium px-6 leading-relaxed">I still could not trust the words, but I could trust the technique.</p>
-                     <p class="text-spotify-green text-sm font-bold text-center mt-4 tracking-wider uppercase">— Participant 1</p>
+                     <p class="text-spotify-green text-sm font-bold text-center mt-4 tracking-wider uppercase">— Interview Participant</p>
                        </div>
-                       <div class="bg-[#1DB954]/5 border border-[#1DB954]/20 rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden shadow-lg mb-10 mt-2">
+                    <div class="bg-[#1DB954]/5 border border-[#1DB954]/20 rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden shadow-lg mb-10 mt-2">
                     <h6 class="text-6xl text-spotify-green font-serif font-black absolute top-4 left-4 opacity-20">"</h6>
-                     <p class="text-lg md:text-xl text-white italic relative z-10 text-center font-medium px-6 leading-relaxed">It’s not about becoming a completely different person. Spirituality is like adding masala to a dish..it just enhances what you already are.</p>
-                    <p class="text-spotify-green text-sm font-bold text-center mt-4 tracking-wider uppercase">— Participant 2</p>
+                     <p class="text-lg md:text-xl text-white italic relative z-10 text-center font-medium px-6 leading-relaxed">It’s not about becoming a completely different person. Spirituality is like adding masala to a dish—it just enhances what you already are.</p>
+                    <p class="text-spotify-green text-sm font-bold text-center mt-4 tracking-wider uppercase">— Interview Participant</p>
                 </div>
 
                 <h4 class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">5 Key Insights</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
                     <div class="bg-spotify-green/10 border border-spotify-green/30 rounded-xl p-5 hover:bg-spotify-green/20 transition-colors shadow-lg">
                         <h5 class="text-spotify-green font-bold text-sm mb-3">The Digital Anchor</h5>
-                        <p class="text-sm text-[#e0e0e0]">Users don't listen to fulfill a religious duty they use podcasts as on-demand coping mechanisms for stress and emotional regulation.</p>
+                        <p class="text-sm text-[#e0e0e0]">Users don't listen to fulfill a religious duty; they use podcasts as on-demand coping mechanisms for stress and emotional regulation.</p>
                     </div>
                     <div class="bg-blue-500/10 border border-blue-500/30 rounded-xl p-5 hover:bg-blue-500/20 transition-colors shadow-lg">
                         <h5 class="text-blue-400 font-bold text-sm mb-3">Incidental Discovery</h5>
@@ -1227,7 +1505,7 @@
                     </div>
                     <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-5 hover:bg-yellow-500/20 transition-colors shadow-lg">
                         <h5 class="text-yellow-400 font-bold text-sm mb-3">Habitual Integration</h5>
-                        <p class="text-sm text-[#e0e0e0]">Spirituality is consumed on the go during commutes or chores turning reflection into a frictionless daily habit (Micro-dosing).</p>
+                        <p class="text-sm text-[#e0e0e0]">Spirituality is consumed on the go—during commutes or chores—turning reflection into a frictionless daily habit (Micro-dosing).</p>
                     </div>
                     <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5 hover:bg-red-500/20 transition-colors shadow-lg md:col-span-2 lg:col-span-1">
                         <h5 class="text-red-400 font-bold text-sm mb-3">The Skeptical Seeker</h5>
