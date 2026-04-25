@@ -1923,11 +1923,11 @@
                 galleryContainer.innerHTML = '';
                 data.gallery.forEach(imgUrl => {
                     const div = document.createElement('div');
-                    // Applying safe container padding and object-contain to avoid any stretching or distortion
-                    div.className = "w-[280px] md:w-[340px] h-[400px] md:h-[480px] bg-[#181818] p-4 rounded-xl overflow-hidden snap-center shrink-0 border border-[#333] relative group/img cursor-pointer shadow-lg flex items-center justify-center";
+                    // Adjusting frame dynamically based on image height/width
+                    div.className = "shrink-0 h-[350px] md:h-[550px] min-w-[250px] w-fit max-w-[90vw] bg-[#181818] p-2 md:p-3 rounded-xl overflow-hidden snap-center border border-[#333] relative group/img cursor-pointer shadow-lg flex items-center justify-center";
                     div.innerHTML = `
-                        <img src="${imgUrl}" class="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x800/222/555?text=Image+Not+Found'">
-                        <div class="absolute inset-0 bg-black/10 group-hover/img:bg-transparent transition-colors pointer-events-none"></div>
+                        <img src="${imgUrl}" class="h-full w-auto object-contain group-hover/img:scale-105 transition-transform duration-500 rounded-lg" onerror="this.src='https://placehold.co/800x600/222/555?text=Image+Not+Found'">
+                        <div class="absolute inset-0 bg-black/10 group-hover/img:bg-transparent transition-colors pointer-events-none rounded-xl"></div>
                     `;
                     galleryContainer.appendChild(div);
                 });
